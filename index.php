@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once 'db_connect.php';
-    $sql = "SELECT * FROM  users WHERE username = '$username' AND `password` = '$_password'";
+    $sql = "SELECT * FROM  users WHERE username = '$_username' AND `password` = '$_password'";
     $result = $conn->query($sql);
 
     if ($result == true) {
