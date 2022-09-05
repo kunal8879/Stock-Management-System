@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $row = $result->fetch_assoc();
             if ($row['role'] == 1) {
                 $_SESSION['username'] = 'ADMIN';
-                $_SESSION['user_id'] = $row['dept_id'];
+                $_SESSION['user_id'] = $row['user_id'];
                 $_SESSION['role'] = 'admin';
                 $_SESSION['success'] = 'Welcome ' . $row['username'] . ' to admin home page';
 
