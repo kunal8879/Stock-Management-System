@@ -1,69 +1,115 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-#bg {
-  background-color: #888888;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  filter: blur(5px);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  color: #4A4A4A;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+  background-size: cover;
+  background-position: center;
 }
 
-form {
-  width: 350px;
-  position: relative;
-}
-form .form-field {
-  display: -webkit-box;
-  display: -ms-flexbox;
+/* navigation bar */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+header .site-logo {
+  height: 50px;
+  margin-left: 1px;
+}
+
+header .navnavnav {
+  list-style: none;
+}
+
+header .navnavnav ul {
+  list-style: none;
+}
+
+header .navnavnav ul li {
   position: relative;
+  float: left;
 }
-form input {
-  font-family: inherit;
-  width: 100%;
-  outline: none;
-  background-color: #fff;
-  border-radius: 4px;
-  border: none;
+
+header .navnavnav ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 13px 20px;
+  color: #333;
   display: block;
-  padding: 0.9rem 0.7rem;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-  font-size: 17px;
-  color: #4A4A4A;
-  text-indent: 40px;
 }
-form .btn {
-  outline: none;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 auto;
-  padding: 0.9rem 2.5rem;
-  text-align: center;
-  background-color: #47AB11;
+
+header .navnavnav ul li a:hover {
+  background: #00b3aa;
+  border-radius: 5px;
   color: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-  font-size: 17px;
+}
+
+header .navnavnav ul li ul {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  visibility: hidden;
+}
+
+header .navnavnav ul li ul li {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+header .navnavnav ul li:focus-within > ul,
+header .navnavnav ul li:hover > ul {
+  border-radius: 0px 0px 5px 5px;
+  display: initial;
+  visibility: visible;
+}
+/* table */
+
+.content-table {
+  margin-bottom: 20px;
+  width: 85%;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #00b3aa;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #00b3aa;
 }
