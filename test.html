@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editItemModal" style=" margin: 0px 1px; padding: 4px 7px; font-size: 15px;">Edit</button>
+<div class="modal fade" id="editItemModal" aria-labelledby="editItemModallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editItemModalLabel">ENTER ITEM DETAILS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="./actions/add_item.php" method="POST">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="item" name="item_name" value="<?php echo $item['item_name']; ?>" required>
+                        <label class="form-label">ITEM:</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="category" name="item_category" value="<?php echo $item['item_cat']; ?>" required>
+                        <label class="form-label">CATEGORY:</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="details" name="item_details" value="<?php echo $item['item_detail']; ?>" required>
+                        <label class="form-label">DETAILS:</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="supplier" name="supplier_name" value="<?php echo $item['supplier_name']; ?>" required>
+                        <label class="form-label">SUPPLIER:</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="bill" name="bill_no" value="<?php echo $item['bill_no']; ?>" required>
+                        <label class="form-label">BILL:</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #00b3aa;">Close</button>
+                        <button type="submit" name="add-item" class="btn btn-primary" style="background-color: #00b3aa;">EDIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
