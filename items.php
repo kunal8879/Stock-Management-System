@@ -14,6 +14,7 @@ require 'db_connect.php';
 </head>
 
 <body>
+
     <!-- navigation bar -->
     <div style="margin: 90px;">
         <header>
@@ -35,13 +36,14 @@ require 'db_connect.php';
         </header>
     </div>
 
+    <!-- add item -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal" style=" margin-left: 50px; background-color: #00b3aa;">&plus;NEW</button>
-    <div class="modal fade" id="addItemModal" aria-labelledby="addItemModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addItemModal" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addItemModalLabel">ENTER ITEM DETAILS</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">ENTER ITEM DETAILS</h5>
+                    <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="./actions/add_item.php" method="POST">
@@ -66,7 +68,7 @@ require 'db_connect.php';
                             <label class="form-label">BILL:</label>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #00b3aa;">Close</button>
+                            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                             <button type="submit" name="add-item" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
                         </div>
                     </form>
@@ -78,8 +80,7 @@ require 'db_connect.php';
 
     <h3 class="text-muted text-center">ALL ITEMS</h3>
 
-    <!-- table -->
-
+    <!-- table content -->
     <table class="content-table" style="border-collapse: separate;">
         <thead>
             <tr>
@@ -96,8 +97,8 @@ require 'db_connect.php';
         <tbody>
             <?php
             require_once 'db_connect.php';
-            // $sql = "SELECT * FROM item INNER JOIN lab INNER JOIN supplier ON item.lab_id = lab.lab_id AND item.supplier_id = supplier.supplier_id";
-            $sql = "SELECT * FROM item";
+            $sql = "SELECT * FROM `item` INNER JOIN `lab` INNER JOIN `supplier` ON item.lab_id = lab.lab_id AND item.supplier_id = supplier.supplier_id";
+            // $sql = "SELECT * FROM item";
             $sql_run = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($sql_run) > 0) {
@@ -112,46 +113,71 @@ require 'db_connect.php';
                         <td><?= $item['lab_no'] ?></td>
                         <td><?= $item['supplied_at'] ?></td>
                         <td>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editItemModal" style=" margin: 0px 1px; padding: 4px 7px; font-size: 15px;">Edit</button>
-                            <div class="modal fade" id="editItemModal" aria-labelledby="editItemModallabel" aria-hidden="true">
+
+                            <!-- edit item details -->
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editItemModal<?php echo $item['item_id']; ?>" style=" margin: 0px 1px; padding: 4px 7px; font-size: 15px;">Edit</button>
+                            <div class="modal fade" id="editItemModal<?php echo $item['item_id']; ?>" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editItemModalLabel">ENTER ITEM DETAILS</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Edit Item Details</h5>
+                                            <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="./actions/add_item.php" method="POST">
+                                            <form action="./actions/edit_item.php" method="POST">
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" id="item" name="item_name" value="<?php echo $item['item_name']; ?>" required>
+                                                    <input type="hidden" class="form-control" id="item_id" name="item_id" value="<?php echo $item['item_id']; ?>">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>">
                                                     <label class="form-label">ITEM:</label>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" id="category" name="item_category" value="<?php echo $item['item_cat']; ?>" required>
+                                                    <input type="text" class="form-control" id="category" name="item_cat" value="<?php echo $item['item_cat']; ?>">
                                                     <label class="form-label">CATEGORY:</label>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" id="details" name="item_details" value="<?php echo $item['item_detail']; ?>" required>
+                                                    <input type="text" class="form-control" id="details" name="item_detail" value="<?php echo $item['item_detail']; ?>">
                                                     <label class="form-label">DETAILS:</label>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" id="supplier" name="supplier_name" value="<?php echo $item['supplier_name']; ?>" required>
-                                                    <label class="form-label">SUPPLIER:</label>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" id="bill" name="bill_no" value="<?php echo $item['bill_no']; ?>" required>
-                                                    <label class="form-label">BILL:</label>
+                                                    <input type="text" class="form-control" id="supplier" name="supplied_at" value="<?php echo $item['supplied_at']; ?>" readonly>
+                                                    <label class="form-label">SUPPLIED ON:</label>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="background-color: #00b3aa;">Cancel</button>
-                                                    <button type="submit" name="add-item" class="btn btn-primary" style="background-color: #00b3aa;">Edit</button>
+                                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                                                    <button type="submit" name="edit_item" class="btn btn-primary" style="background-color: #00b3aa;">Edit</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteItemModal" style=" margin: 1px; padding: 5px; font-size: 13px;">DELETE</button>
+
+                            <!-- delete item -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteItemModal<?php echo $item['item_id']; ?>" style=" margin: 1px; padding: 5px; font-size: 13px;">DELETE</button>
+                            <div class="modal fade" id="deleteItemModal<?php echo $item['item_id']; ?>" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Delete Item</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="./actions/delete_item.php" method="POST">
+                                                <div class="modal-body">
+                                                    <p style="text-align: center;">Are you sure you want to Delete</p>
+                                                    <h2 style="text-align: center; color: red;"><?php echo $item['item_name']; ?></h2>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                                                    <button type="submit" name="delete_item" class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
 
