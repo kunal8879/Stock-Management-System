@@ -6,7 +6,7 @@ require_once '../db_connect.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $item_name = $_POST['item_name'];
-    $item_cat = $_POST['item_category'];
+    $item_cat = $_POST['item_cat'];
     $item_detail = $_POST['item_details'];
     $bill_no = $_POST['bill_no'];
     $supplier_id = $_POST['supplier_name'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-function flash()
+function message()
 {
     //display on error
     if (isset($_SESSION['error'])) {

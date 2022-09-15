@@ -1,8 +1,7 @@
 <?php
-require_once '../message.php';
 
-if (isset($_GET['item_id'])) {
-    require_once '../db_connect.php.php';
+if (isset($_POST['item_id'])) {
+    require_once '../db_connect.php';
     $sql = "DELETE FROM item WHERE item_id = '" . $_GET['item_id'] . "'";
     $sql_run = mysqli_query($conn, $sql);
 

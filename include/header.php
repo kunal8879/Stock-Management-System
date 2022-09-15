@@ -5,31 +5,29 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title></title>
-      <link rel="stylesheet" href="../css/nav.css">
-      <link rel="stylesheet" href="../css/bootstrap.css">
-      <link rel="stylesheet" href="../css/bootstrap2.js">
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/bootstrap.css">
 </head>
 
 <body>
-      <nav>
-            <img src="../css/logo.png" alt="Logo" class="logo">
-            <ul>
-                  <li><a href="home.php">Home</a></li>
-                  <li>
-                        <a href="#">Item</a>
+
+      <!-- navigation bar -->
+      <div style="margin: 90px;">
+            <header>
+                  <img src="./css/logo.png" alt="" class="site-logo">
+                  <nav class="navnavnav">
                         <ul>
-                              <li><a href="items.php">Items</a></li>
-                              <li><a href="allocate.php">Allocate</a></li>
+                              <li><a href="#">Home</a></li>
+                              <li><a href="#">Items &plus;</a>
+                                    <ul>
+                                          <li><a href="items.php">Items</a></li>
+                                          <li><a href="allocate.php">Allocate</a></li>
+                                    </ul>
+                              </li>
+                              <li><a href="#">Labs</a></li>
+                              <li><a href="#">Supplier</a></li>
+                              <li><a href="#">Logout</a></li>
                         </ul>
-                  </li>
-                  <li><a href="Supplier"></a></li>
-                  <li><a href="Lab"></a></li>
-                  <li><a href="LogIn"></a></li>
-                  <li><a href="LogOut"></a></li>
-            </ul>
-      </nav>
-
-</body>
-
-</html>
+                  </nav>
+            </header>
+      </div>
