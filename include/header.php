@@ -10,11 +10,11 @@
 </head>
 
 <body>
-
+      <script src="./include/search.js"></script>
       <!-- navigation bar -->
       <div style="margin: 90px;">
             <header>
-                  <img src="./css/logo.png" alt="" class="site-logo">
+                  <img src="./images/logo.png" alt="Logo" class="site-logo">
                   <nav class="navnavnav">
                         <ul>
                               <li><a href="#">Home</a></li>

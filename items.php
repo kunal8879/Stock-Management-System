@@ -40,7 +40,7 @@ require_once './include/header.php';
                         $sql1 = "SELECT * FROM `supplier`";
                         $sql_run1 = mysqli_query($conn, $sql1);
 
-                        echo "<select class='form-control' id='supplier_name' name='supplier_name'>";
+                        echo "<select class='form-control' id='supplierName' name='supplier_name'>";
                         foreach ($sql_run1 as $item) {
                         ?>
 
@@ -64,8 +64,14 @@ require_once './include/header.php';
 
 <h3 class="text-muted text-center" style="margin-bottom: 10px;">ALL ITEMS</h3>
 
+<!-- search for item -->
+<div class="mb-3">
+    <input type="text" class="form-control item-search" id="itemSearch" onkeyup="tableSearch()" placeholder="Search by item name..." style="width: 15%; height: 25px; float: right; margin-right: 110px; margin-bottom:2px;">
+    <label class="form-label search-label" style="float: right; margin: 0 3px 5px 5px;">Search: </label>
+</div>
+
 <!-- table -->
-<table class="content-table" style="border-collapse: separate;">
+<table class="content-table" id="tableData" style="border-collapse: separate;">
     <thead>
         <tr>
             <!-- table head -->
@@ -92,7 +98,7 @@ require_once './include/header.php';
         ?>
                 <tr>
                     <!--showing item details -->
-                    <td><?= $i ?></td>
+                    <td id="noIitem"><?= $i ?></td>
                     <td><?= $item['item_name'] ?></td>
                     <td><?= $item['item_cat'] ?></td>
                     <td><?= $item['item_detail'] ?></td>
@@ -115,10 +121,10 @@ require_once './include/header.php';
                                     <div class="modal-body">
                                         <form action="./actions/edit_item.php" method="POST">
                                             <div class="mb-3">
-                                                <input type="hidden" class="form-control" id="item_id" name="item_id" value="<?php echo $item['item_id']; ?>">
+                                                <input type="hidden" class="form-control" id="itemId" name="item_id" value="<?php echo $item['item_id']; ?>">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>">
+                                                <input type="text" class="form-control" id="itemName" name="item_name" value="<?php echo $item['item_name']; ?>">
                                                 <label class="form-label">ITEM:</label>
                                             </div>
                                             <div class="mb-3">
@@ -185,8 +191,6 @@ require_once './include/header.php';
 
 <!-- footer -->
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 
 </body>
