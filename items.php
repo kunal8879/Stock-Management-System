@@ -98,7 +98,7 @@ require_once './include/header.php';
         ?>
                 <tr>
                     <!--showing item details -->
-                    <td id="noIitem"><?= $i ?></td>
+                    <td><?= $i ?></td>
                     <td><?= $item['item_name'] ?></td>
                     <td><?= $item['item_cat'] ?></td>
                     <td><?= $item['item_detail'] ?></td>
