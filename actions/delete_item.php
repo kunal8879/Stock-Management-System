@@ -1,17 +1,20 @@
 <?php
+require_once '../db_connect.php';
 
-if (isset($_POST['item_id'])) {
-    require_once '../db_connect.php';
-    $sql = "DELETE FROM item WHERE item_id = '" . $_GET['item_id'] . "'";
+if (isset($_POST['delete_item'])) {
+
+    $item_id = mysqli_real_escape_string($conn, $_POST['item_id']);
+
+    $sql = "DELETE FROM `item` WHERE `item_id` = $item_id";
     $sql_run = mysqli_query($conn, $sql);
 
     if ($sql_run == true) {
-        $_SESSION['success'] = 'Item deleted successfully';
+        $_SESSION['success'] = 'Item Deleted Successfully.';
     } else {
-        $_SESSION['error'] = 'Something went wrong in deleting member query';
+        $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
     }
 } else {
-    $_SESSION['error'] = 'Select member to delete first';
+    $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
 }
 
-header('location: ../items.php');
+header('Location: ../items.php');

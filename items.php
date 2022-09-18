@@ -1,13 +1,13 @@
 <?php
-require 'db_connect.php';
-require_once './include/header.php';
+require_once 'db_connect.php';
+require_once 'include/header.php'
 ?>
 
 <!-- add item button-->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal" style=" margin-left: 50px; background-color: #00b3aa;">&plus;NEW</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal" style=" margin-left: 50px; background-color: #00b3aa;">NEW&plus;</button>
 
 <!-- add item model -->
-<div class="modal fade" id="addItemModal" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -18,19 +18,19 @@ require_once './include/header.php';
                 <form action="./actions/add_item.php" method="POST">
                     <div class="mb-3">
                         <label class="form-label">ITEM:</label>
-                        <input type="text" class="form-control" id="item" name="item_name" placeholder="Enter Item Name" required>
+                        <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter Item Name" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">CATEGORY:</label>
-                        <input type="text" class="form-control" id="category" name="item_cat" placeholder="Enter Category" required>
+                        <input type="text" class="form-control" id="item-cat" name="item_cat" placeholder="Enter Category" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">DETAILS:</label>
-                        <input type="text" class="form-control" id="details" name="item_detail" placeholder="Enter Details" required>
+                        <input type="text" class="form-control" id="item_detail" name="item_detail" placeholder="Enter Details" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">BILL:</label>
-                        <input type="text" class="form-control" id="bill" name="bill_no" placeholder="Enter Bill No." required>
+                        <input type="text" class="form-control" id="bill_no" name="bill_no" placeholder="Enter Bill No." required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">SUPPLIER:</label>
@@ -40,20 +40,17 @@ require_once './include/header.php';
                         $sql1 = "SELECT * FROM `supplier`";
                         $sql_run1 = mysqli_query($conn, $sql1);
 
-                        echo "<select class='form-control' id='supplierName' name='supplier_name'>";
+                        echo "<select class='form-control' id='supplier_name' name='supplier_name'>";
                         foreach ($sql_run1 as $item) {
                         ?>
-
                             <option value="<?php echo $item['supplier_id']; ?>"><?php echo $item['supplier_name']; ?></option>
-
                         <?php }
                         echo "</select>";
                         ?>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-bs-dismiss="modal" style="background-color: #00b3aa;">Close</button>
-                        <button type="submit" name="add_item" class="btn" style="background-color: #00b3aa;">ADD</button>
+                        <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
                     </div>
                 </form>
             </div>
@@ -61,13 +58,12 @@ require_once './include/header.php';
     </div>
 </div>
 
-
 <h3 class="text-muted text-center" style="margin-bottom: 10px;">ALL ITEMS</h3>
 
 <!-- search for item -->
 <div class="mb-3">
-    <input type="text" class="form-control item-search" id="itemSearch" onkeyup="tableSearch()" placeholder="Search by item name..." style="width: 15%; height: 25px; float: right; margin-right: 110px; margin-bottom:2px;">
-    <label class="form-label search-label" style="float: right; margin: 0 3px 5px 5px;">Search: </label>
+    <input type="text" class="form-control item-search" id="itemSearch" onkeyup="tableSearch()" placeholder="Search by item name..." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
+    <label class="form-label search-label" style="float: right; margin: -38px 320px 5px 1px;">Search: </label>
 </div>
 
 <!-- table -->
@@ -86,6 +82,7 @@ require_once './include/header.php';
         </tr>
     </thead>
     <tbody>
+
         <!-- fetching item details from database -->
         <?php
         $sql2 = "SELECT * FROM `item` INNER JOIN `lab` INNER JOIN `supplier` ON `item`.lab_id = `lab`.lab_id AND `item`.supplier_id = `supplier`.supplier_id";
@@ -93,6 +90,7 @@ require_once './include/header.php';
         $sql_run2 = mysqli_query($conn, $sql2);
 
         $i = 1;
+
         if (mysqli_num_rows($sql_run2) > 0) {
             foreach ($sql_run2 as $item) {
         ?>
@@ -104,7 +102,7 @@ require_once './include/header.php';
                     <td><?= $item['item_detail'] ?></td>
                     <td><?= $item['supplier_name'] ?></td>
                     <td><?= $item['lab_no'] ?></td>
-                    <td><?= $item['supplied_at'] ?></td>
+                    <td style="padding: 8px; text-align: center;"><?= $item['supplied_at'] ?></td>
                     <td>
 
                         <!-- edit item button-->
@@ -121,22 +119,26 @@ require_once './include/header.php';
                                     <div class="modal-body">
                                         <form action="./actions/edit_item.php" method="POST">
                                             <div class="mb-3">
-                                                <input type="hidden" class="form-control" id="itemId" name="item_id" value="<?php echo $item['item_id']; ?>">
+                                                <input type="hidden" class="form-control" id="item_id" name="item_id" value="<?php echo $item['item_id']; ?>">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" id="itemName" name="item_name" value="<?php echo $item['item_name']; ?>">
+                                                <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>">
                                                 <label class="form-label">ITEM:</label>
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" id="category" name="item_cat" value="<?php echo $item['item_cat']; ?>">
+                                                <input type="text" class="form-control" id="item_cat" name="item_cat" value="<?php echo $item['item_cat']; ?>">
                                                 <label class="form-label">CATEGORY:</label>
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" id="details" name="item_detail" value="<?php echo $item['item_detail']; ?>">
+                                                <input type="text" class="form-control" id="item_detail" name="item_detail" value="<?php echo $item['item_detail']; ?>">
                                                 <label class="form-label">DETAILS:</label>
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" id="supplier" name="supplied_at" value="<?php echo $item['supplied_at']; ?>" readonly>
+                                                <input type="text" class="form-control" id="bill_no" name="bill_no" value="<?php echo $item['bill_no']; ?>">
+                                                <label class="form-label">Bill No:</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" id="supplied_at" name="supplied_at" value="<?php echo $item['supplied_at']; ?>" readonly>
                                                 <label class="form-label">SUPPLIED ON:</label>
                                             </div>
                                             <div class="modal-footer">
@@ -162,7 +164,10 @@ require_once './include/header.php';
                                     </div>
                                     <div class="modal-body">
                                         <form action="./actions/delete_item.php" method="POST">
-                                            <div class="modal-body">
+                                            <div class="mb-3">
+                                                <input type="hidden" class="form-control" id="item_id" name="item_id" value="<?php echo $item['item_id']; ?>">
+                                            </div>
+                                            <div class="mb-3">
                                                 <p style="text-align: center;">Are you sure you want to Delete</p>
                                                 <h2 style="text-align: center; color: red;"><?php echo $item['item_name']; ?></h2>
                                             </div>
@@ -177,11 +182,16 @@ require_once './include/header.php';
                         </div>
                     </td>
                 </tr>
-        <?php
+            <?php
                 $i++;
             }
         } else {
-            echo 'No Data Found!!';
+            ?>
+            <!-- if there is no data in the database -->
+            <tr>
+                <td colspan="8" style="text-align: center; font-size: 20px;">NO ITEM FOUND!!!!</td>
+            </tr>
+        <?php
         }
         ?>
     </tbody>
@@ -190,7 +200,6 @@ require_once './include/header.php';
 <hr style="margin-bottom: 100px;">
 
 <!-- footer -->
-
 
 
 </body>
