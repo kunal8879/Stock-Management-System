@@ -21,11 +21,11 @@
                               <li><a href="./home.php">Home</a></li>
                               <li><a href="#">Items &plus;</a>
                                     <ul style="padding: 0;">
-                                          <li><a href="./items.php">Items</a></li>
-                                          <li><a href="./allocate.php">Allocate</a></li>
+                                          <li><a href="./items.php" style="padding: 7px; text-align: center;">Items</a></li>
+                                          <li><a href="./allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
                                     </ul>
                               </li>
-                              <li><a href="./lab.php">Labs</a></li>
+                              <li><a href=" ./lab.php">Labs</a></li>
                               <li><a href="#">Supplier</a></li>
                               <li><a href="#">Logout</a></li>
                         </ul>
