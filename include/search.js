@@ -1,5 +1,5 @@
 function tableSearch() {
-    let input = document.getElementById("itemSearch");
+    let input = document.getElementById("search");
     let filter = input.value.toLowerCase();
     let table = document.getElementById("tableData");
     let tr = table.getElementsByTagName("tr");

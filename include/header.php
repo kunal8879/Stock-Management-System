@@ -18,14 +18,14 @@
                   <img src="./images/logo.png" alt="Logo" class="site-logo">
                   <nav class="navnavnav">
                         <ul>
-                              <li><a href="#">Home</a></li>
+                              <li><a href="./home.php">Home</a></li>
                               <li><a href="#">Items &plus;</a>
-                                    <ul>
-                                          <li><a href="items.php">Items</a></li>
-                                          <li><a href="allocate.php">Allocate</a></li>
+                                    <ul style="padding: 0;">
+                                          <li><a href="./items.php">Items</a></li>
+                                          <li><a href="./allocate.php">Allocate</a></li>
                                     </ul>
                               </li>
-                              <li><a href="#">Labs</a></li>
+                              <li><a href="./lab.php">Labs</a></li>
                               <li><a href="#">Supplier</a></li>
                               <li><a href="#">Logout</a></li>
                         </ul>

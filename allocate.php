@@ -7,7 +7,7 @@ require_once './include/header.php';
 
 <!-- search for item -->
 <div class="mb-3">
-    <input type="text" class="form-control item-search" id="itemSearch" onkeyup="tableSearch()" placeholder="Search by item name..." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
+    <input type="text" class="form-control item-search" id="search" onkeyup="tableSearch()" placeholder="Search for item.." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
     <label class="form-label search-label" style="float: right; margin: -38px 320px 5px 1px;">Search: </label>
 </div>
 
@@ -99,10 +99,11 @@ require_once './include/header.php';
         ?>
     </tbody>
 </table>
-<hr style="margin-bottom: 100px;">
 
 <!-- footer -->
-
+<?php
+include 'include/footer.php';
+?>
 
 </body>
 

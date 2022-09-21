@@ -11,46 +11,26 @@ require_once 'include/header.php'
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Enter Item Details</h5>
+                <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Add New Lab</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="./actions/add_item.php" method="POST">
                     <div class="mb-3">
-                        <label class="form-label">ITEM:</label>
-                        <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter Item Name" required>
+                        <label class="form-label">LAB NO: </label>
+                        <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="Enter Item Name" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">CATEGORY:</label>
-                        <input type="text" class="form-control" id="item-cat" name="item_cat" placeholder="Enter Category" required>
+                        <label class="form-label">DETAILS: </label>
+                        <input type="text" class="form-control" id="lab_detail" name="lab_detail" placeholder="Enter Details" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">DETAILS:</label>
-                        <input type="text" class="form-control" id="item_detail" name="item_detail" placeholder="Enter Details" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">BILL:</label>
-                        <input type="text" class="form-control" id="bill_no" name="bill_no" placeholder="Enter Bill No." required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">SUPPLIER:</label>
-
-                        <!-- supplier names dropdown -->
-                        <?php
-                        $sql1 = "SELECT * FROM `supplier`";
-                        $sql_run1 = mysqli_query($conn, $sql1);
-
-                        echo "<select class='form-control' id='supplier_name' name='supplier_name'>";
-                        foreach ($sql_run1 as $item) {
-                        ?>
-                            <option value="<?php echo $item['supplier_id']; ?>"><?php echo $item['supplier_name']; ?></option>
-                        <?php }
-                        echo "</select>";
-                        ?>
+                        <label class="form-label">LAB ADMIN: </label>
+                        <input type="text" class="form-control" id="lab_admin" name="lab_admin" placeholder="Enter Bill No." required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
-                        <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
+                        <button type="submit" name="add_lab" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
                     </div>
                 </form>
             </div>
@@ -58,11 +38,11 @@ require_once 'include/header.php'
     </div>
 </div>
 
-<h3 class="text-muted text-center" style="margin-bottom: 10px;">ALL ITEMS</h3>
+<h3 class="text-muted text-center" style="margin-bottom: 10px;">ALL LAB</h3>
 
 <!-- search for item -->
 <div class="mb-3">
-    <input type="text" class="form-control item-search" id="search" onkeyup="tableSearch()" placeholder="Search for lab.." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
+    <input type="text" class="form-control lab-search" id="search" onkeyup="tableSearch()" placeholder="Search for lab.." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
     <label class="form-label search-label" style="float: right; margin: -38px 320px 5px 1px;">Search: </label>
 </div>
 
@@ -72,12 +52,10 @@ require_once 'include/header.php'
         <tr>
             <!-- table head -->
             <th>SR.</th>
-            <th>ITEM</th>
-            <th>CATEGORY</th>
-            <th>DETAILS</th>
-            <th>SUPPLIER</th>
-            <th>LAB</th>
-            <th>SUPPLIED AT</th>
+            <th>LAB NO</th>
+            <th>DETAIL</th>
+            <th>LAB ADMIN</th>
+            <th>ADDED ON</th>
             <th>ACTION</th>
         </tr>
     </thead>
@@ -85,24 +63,22 @@ require_once 'include/header.php'
 
         <!-- fetching item details from database -->
         <?php
-        $sql2 = "SELECT * FROM `item` INNER JOIN `lab` INNER JOIN `supplier` ON `item`.lab_id = `lab`.lab_id AND `item`.supplier_id = `supplier`.supplier_id";
+        $sql1 = "SELECT * FROM `lab` WHERE `role` <> '1'";
         // $sql2 = "SELECT * FROM item";
-        $sql_run2 = mysqli_query($conn, $sql2);
+        $sql_run1 = mysqli_query($conn, $sql1);
 
         $i = 1;
 
-        if (mysqli_num_rows($sql_run2) > 0) {
-            foreach ($sql_run2 as $item) {
+        if (mysqli_num_rows($sql_run1) > 0) {
+            foreach ($sql_run1 as $lab) {
         ?>
                 <tr>
                     <!--showing item details -->
                     <td><?= $i ?></td>
-                    <td><?= $item['item_name'] ?></td>
-                    <td><?= $item['item_cat'] ?></td>
-                    <td><?= $item['item_detail'] ?></td>
-                    <td><?= $item['supplier_name'] ?></td>
-                    <td><?= $item['lab_no'] ?></td>
-                    <td style="padding: 8px; text-align: center;"><?= $item['supplied_at'] ?></td>
+                    <td><?= $lab['lab_no'] ?></td>
+                    <td><?= $lab['lab_detail'] ?></td>
+                    <td><?= $lab['lab_admin'] ?></td>
+                    <td style="padding: 8px; text-align: center;"><?= $lab['added_on'] ?></td>
                     <td>
 
                         <!-- edit item button-->
@@ -196,6 +172,8 @@ require_once 'include/header.php'
         ?>
     </tbody>
 </table>
+
+<hr style="margin: auto; width: 90%;">
 
 <!-- footer -->
 <?php
