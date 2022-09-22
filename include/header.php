@@ -17,6 +17,7 @@ $username = $_SESSION['username'];
 </head>
 
 <body>
+<<<<<<< HEAD
     <script src="./css/bootstrap.js"></script>
     <script src="./include/search.js"></script>
     <!-- navigation bar -->
@@ -30,6 +31,27 @@ $username = $_SESSION['username'];
                         <ul style="padding: 0;">
                             <li><a href="./items.php" style="padding: 7px; text-align: center;">Items</a></li>
                             <li><a href="./allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
+=======
+      <script src="./css/bootstrap.js"></script>
+      <script src="./include/search.js"></script>
+      <!-- navigation bar -->
+      <div style="margin: 90px;">
+            <header>
+                  <img src="./images/logo3.png" alt="Logo" class="site-logo">
+                  <nav class="navnavnav">
+                        <ul>
+                              <li><a href="./home.php">Home</a></li>
+                              <li><a href="#">Items &plus;</a>
+                                    <ul style="padding: 0;">
+                                          <li><a href="./items.php" style="padding: 7px; text-align: center;">Items</a></li>
+                                          <li><a href="./allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
+                                    </ul>
+                              </li>
+                              <li><a href=" ./lab.php">Labs</a></li>
+                              <li><a href="#">Supplier</a></li>
+                              <li><a href="card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a></li>
+
+>>>>>>> 8319418d84e8b4547bcfffd3c60f51782c20d30b
                         </ul>
                     </li>
                     <li><a href=" ./lab.php">Labs</a></li>
