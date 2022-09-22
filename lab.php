@@ -75,87 +75,11 @@ require_once 'include/header.php'
                 <tr>
                     <!--showing item details -->
                     <td><?= $i ?></td>
-                    <td><?= $lab['lab_no'] ?></td>
+                    <td><?php echo "<a href='actions/display_lab.php?lab_no=$lab[lab_no]'>"; ?> <?= $lab['lab_no'] ?></td>
                     <td><?= $lab['lab_detail'] ?></td>
                     <td><?= $lab['lab_admin'] ?></td>
                     <td style="padding: 8px; text-align: center;"><?= $lab['added_on'] ?></td>
                     <td>
-
-                        <!-- edit item button-->
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editItemModal<?php echo $item['item_id']; ?>" style=" margin: 0px 1px; padding: 4px 7px; font-size: 15px;">Edit</button>
-
-                        <!-- edit item model -->
-                        <div class="modal fade" id="editItemModal<?php echo $item['item_id']; ?>" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Edit Item Details</h5>
-                                        <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="./actions/edit_item.php" method="POST">
-                                            <div class="mb-3">
-                                                <input type="hidden" class="form-control" id="item_id" name="item_id" value="<?php echo $item['item_id']; ?>">
-                                            </div>
-                                            <div class="mb-3">
-                                                <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>">
-                                                <label class="form-label">ITEM:</label>
-                                            </div>
-                                            <div class="mb-3">
-                                                <input type="text" class="form-control" id="item_cat" name="item_cat" value="<?php echo $item['item_cat']; ?>">
-                                                <label class="form-label">CATEGORY:</label>
-                                            </div>
-                                            <div class="mb-3">
-                                                <input type="text" class="form-control" id="item_detail" name="item_detail" value="<?php echo $item['item_detail']; ?>">
-                                                <label class="form-label">DETAILS:</label>
-                                            </div>
-                                            <div class="mb-3">
-                                                <input type="text" class="form-control" id="bill_no" name="bill_no" value="<?php echo $item['bill_no']; ?>">
-                                                <label class="form-label">Bill No:</label>
-                                            </div>
-                                            <div class="mb-3">
-                                                <input type="text" class="form-control" id="supplied_at" name="supplied_at" value="<?php echo $item['supplied_at']; ?>" readonly>
-                                                <label class="form-label">SUPPLIED ON:</label>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Cancel</button>
-                                                <button type="submit" name="edit_item" class="btn btn-primary" style="background-color: #00b3aa;">Edit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- delete item  button-->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteItemModal<?php echo $item['item_id']; ?>" style=" margin: 1px; padding: 5px; font-size: 13px;">DELETE</button>
-
-                        <!-- delete item model -->
-                        <div class="modal fade" id="deleteItemModal<?php echo $item['item_id']; ?>" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Delete Item</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="./actions/delete_item.php" method="POST">
-                                            <div class="mb-3">
-                                                <input type="hidden" class="form-control" id="item_id" name="item_id" value="<?php echo $item['item_id']; ?>">
-                                            </div>
-                                            <div class="mb-3">
-                                                <p style="text-align: center;">Are you sure you want to Delete</p>
-                                                <h2 style="text-align: center; color: red;"><?php echo $item['item_name']; ?></h2>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Cancel</button>
-                                                <button type="submit" name="delete_item" class="btn btn-danger">Delete</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </td>
                 </tr>
             <?php
