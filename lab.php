@@ -85,8 +85,7 @@ require_once 'include/header.php'
                     <td><?= $lab['lab_admin'] ?></td>
                     <td style="padding: 8px; text-align: center;"><?= $lab['added_on'] ?></td>
                     <td>
-<<<<<<< HEAD
-=======
+
 
                         <!-- edit lab button-->
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editLabModal<?php echo $lab['lab_id']; ?>" style=" margin: 0px 1px; padding: 4px 7px; font-size: 15px;">Edit</button>
@@ -163,7 +162,6 @@ require_once 'include/header.php'
                                 </div>
                             </div>
                         </div>
->>>>>>> 92f459c12478540af2c8b83acc74487066f3bf73
                     </td>
                 </tr>
             <?php
