@@ -34,9 +34,29 @@ require_once '../db_connect.php';
 
         .icon_style {
             text-align: center;
+            position: absolute;
+            left: -200px;
+
+            height: 350px;
+            width: 400px;
+            
+
             margin: 80px 500px 80px 500px;
             border: 2px outset #000000;
         }
+
+        <?php 
+        for($i=0;$i<=$pcquantity;$i++){
+            echo "<style>
+            #pcicon$i{
+                width: 50px;
+                padding-top:10px;
+                margin: 10px;
+            }
+            </style>
+            ";
+        }
+        ?>
 
         
     </style>
@@ -73,6 +93,7 @@ require_once '../db_connect.php';
     
     echo "<div class='icon_style'>";
     for($i=1;$i<=$pcquantity;$i++){
+
         echo "<i id='pcicon$i' class='fa-solid fa-desktop  fa-2x '></i>";
         echo " ";
         if($i%5==0){

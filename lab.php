@@ -1,6 +1,8 @@
 <?php
 require_once 'db_connect.php';
 require_once 'include/header.php'
+
+
 ?>
 
 <!-- add lab button-->
@@ -104,7 +106,7 @@ require_once 'include/header.php'
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="lab_no" name="lab_no" value="<?php echo $lab['lab_no']; ?>">
-                                                <label class="form-label">Lab: </label>
+                                                <label class="form-label">LAB: </label>
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="lab_detail" name="lab_detail" value="<?php echo $lab['lab_detail']; ?>">
@@ -116,7 +118,7 @@ require_once 'include/header.php'
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="pcquantity" name="pcquantity" value="<?php echo $lab['pcquantity']; ?>">
-                                                <label class="form-label">LAB ADMIN: </label>
+                                                <label class="form-label">PC Quantity: </label>
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="added_on" name="added_on" value="<?php echo $lab['added_on']; ?>">

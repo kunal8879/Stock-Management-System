@@ -27,7 +27,7 @@
                               </li>
                               <li><a href=" ./lab.php">Labs</a></li>
                               <li><a href="#">Supplier</a></li>
-                              <li><a href="#">Logout</a></li>
+                              <li><a href="login.php">LogIn</a></li>
                         </ul>
                   </nav>
             </header>
