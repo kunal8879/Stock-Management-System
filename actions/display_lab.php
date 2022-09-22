@@ -3,12 +3,12 @@
 require_once '../db_connect.php';
 
 
-    $roomno=$_GET['lab_no'];
+$roomno = $_GET['lab_no'];
 
-    $query="select * from lab WHERE lab_no='$roomno'";
-    $data= mysqli_query($conn,$query);
-    $result=mysqli_fetch_assoc($data);
-    $pcquantity=$result['pcquantity'];
+$query = "select * from lab WHERE lab_no='$roomno'";
+$data = mysqli_query($conn, $query);
+$result = mysqli_fetch_assoc($data);
+$pcquantity = $result['pcquantity'];
 ?>
 
 <!DOCTYPE html>
@@ -42,19 +42,25 @@ require_once '../db_connect.php';
         border: 2px outset #000000;
     }
 
-    <?php for($i=0; $i<=$pcquantity; $i++) {
+    .icon_button {
+        width: 50px;
+        padding-top: 10px;
+        margin: 10px;
+        background-color: white;
+    }
+
+    <?php for ($i=0; $i <=$pcquantity; $i++) {
         echo "<style>
 #pcicon$i {
             width: 50px;
             padding-top: 10px;
+            padding-right: 20px;
             margin: 10px;
         }
     </style>
     ";
     }
     ?>
-
-
     </style>
 
 </head>
@@ -63,29 +69,31 @@ require_once '../db_connect.php';
     <div style="margin: 90px;">
 
         <?php
-    
-   
-    
-    echo "<div class='roomno1'>
+
+
+
+        echo "<div class='roomno1'>
     Lab No: $roomno
     </div>";
-    ?>
+        ?>
 
 
         <?php
-    
-    echo "<div class='icon_style'>";
-    for($i=1;$i<=$pcquantity;$i++){
 
-        echo "<i id='pcicon$i' class='fa-solid fa-desktop  fa-2x '></i>";
-        echo " ";
-        if($i%5==0){
-            echo "<br>";
+        echo "<div class='icon_style'>";
+        for ($i = 1; $i <= $pcquantity; $i++) {
+
+            echo "<button class='icon_button'><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x '></i></button>";
+            echo " ";
+            if ($i % 5 == 0) {
+                echo "<br>";
+            }
         }
-    }
-    echo "</div>";
+        echo "</div>";
 
-    ?>
+        ?>
 </body>
+
+</html>
 
 </html>
