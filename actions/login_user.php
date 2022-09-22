@@ -34,7 +34,7 @@ if (isset($_REQUEST['username'])) {
                     elseif($result1['role']==0){
                         session_start();
                         $_SESSION['user']='Faculty';
-                        header("Location: ../lab.php");
+                        header("Location: ../lab_faculty.php");
                     }
                     
                     

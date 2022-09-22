@@ -25,18 +25,12 @@ $username = $_SESSION['username'];
             <img src="./images/logo3.png" alt="Logo" class="site-logo">
             <nav class="navnavnav">
                 <ul>
-                    <li><a href="./home.php">Home</a></li>
-                    <li><a href="#">Items &plus;</a>
-                        <ul style="padding: 0;">
-                            <li><a href="./items.php" style="padding: 7px; text-align: center;">Items</a></li>
-                            <li><a href="./allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
-                        </ul>
+                    <li><a href="./lab_faculty.php">Home</a></li>
+
                     </li>
-                    <li><a href=" ./lab.php">Labs</a></li>
-                    <li><a href="#">Supplier</a></li>
+
                     <li><a href="card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
                         <ul style="padding: 0; margin: 0; text-align: center;">
-                            <li><a href="./manage_faculty_details.php" style="padding: 0px;">Manage Faculty</a></li>
                             <li><a href=" logout.php">Logout</a></li>
                         </ul>
                     </li>

@@ -1,12 +1,9 @@
 <?php
 require_once 'db_connect.php';
-require_once 'include/header_student.php'
+require_once 'include/header_faculty.php'
 
 
 ?>
-
-
-
 <h3 class="text-muted text-center" style="margin-bottom: 10px;">ALL LAB</h3>
 
 <!-- search for lab -->
@@ -23,9 +20,9 @@ require_once 'include/header_student.php'
             <!-- table head -->
             <th>SR.</th>
             <th>LAB NO</th>
-            <th>DETAIL</th>
+            <th>DETAILS</th>
             <th>LAB ADMIN</th>
-
+            <th>ADDED ON</th>
         </tr>
     </thead>
     <tbody>
@@ -43,11 +40,11 @@ require_once 'include/header_student.php'
         <tr>
             <!--showing lab details -->
             <td><?= $i ?></td>
-            <td><?php echo "<a href='actions/display_lab.php?lab_no=$lab[lab_no]'>"; ?> <?= $lab['lab_no'] ?></td>
+            <td><?php echo "<a href='actions/display_lab.php?lab_no=$lab[lab_no]'>"; ?>
+                <?= $lab['lab_no'] ?></td>
             <td><?= $lab['lab_detail'] ?></td>
             <td><?= $lab['lab_admin'] ?></td>
-
-
+            <td style="padding: 8px; text-align: center;"><?= $lab['added_on'] ?></td>
         </tr>
         <?php
                 $i++;

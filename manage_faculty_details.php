@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <title>Add Faculty</title>
-    <style>
+    <!-- <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-color: #00b3aa;
@@ -72,7 +72,7 @@
         background-color: #f1f1f1;
         text-align: center;
     }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -82,17 +82,16 @@
             <img src="image/logo3.png" alt="" class="site-logo">
             <nav class="navnavnav">
                 <ul>
-                    <li><a href="index_admin.php">Home</a></li>
+                    <li><a href="./actions/display_details.php">Faculty Details</a></li>
 
 
                 </ul>
                 </li>
-                </ul>
             </nav>
         </header>
     </div>
 
-    <form action="" method="post">
+    <form action="./actions/manage_faculty.php" method="post">
         <div class="container">
             <h1>Add faculty details</h1>
             <hr>
