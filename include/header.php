@@ -1,7 +1,7 @@
-<?php 
+<?php
 session_start();
-$srole=$_SESSION['user'];
-$username=$_SESSION['username'];
+$srole = $_SESSION['user'];
+$username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $username=$_SESSION['username'];
                               </li>
                               <li><a href=" ./lab.php">Labs</a></li>
                               <li><a href="#">Supplier</a></li>
-                              <li><a href="card.php"><i class="fa-solid fa-user"></i><?php echo " ".$srole;?></a></li>
+                              <li><a href="card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a></li>
 
                         </ul>
                   </nav>
