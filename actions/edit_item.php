@@ -8,14 +8,13 @@ if (isset($_POST['edit_item'])) {
     $item_cat = mysqli_real_escape_string($conn, $_POST['item_cat']);
     $item_detail = mysqli_real_escape_string($conn, $_POST['item_detail']);
     $bill_no = mysqli_real_escape_string($conn, $_POST['bill_no']);
-    $supplied_at = mysqli_real_escape_string($conn, $_POST['supplied_at']);
 
     $sql = "UPDATE `item` SET `item_name`='$item_name',`item_cat`='$item_cat',`item_detail`='$item_detail', `bill_no`='$bill_no' WHERE `item_id` = '$item_id';";
 
     $sql_run = mysqli_query($conn, $sql);
 
     if ($sql_run == true) {
-        $_SESSION['success'] = 'Item Updated Successfully.';
+        $_SESSION['success'] = 'Item Details Updated Successfully.';
     } else {
         $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
     }
