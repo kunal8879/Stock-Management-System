@@ -83,7 +83,7 @@ $pcquantity = $result['pcquantity'];
         echo "<div class='icon_style'>";
         for ($i = 1; $i <= $pcquantity; $i++) {
 
-            echo "<button class='icon_button' data-bs-target='#addLabModal'><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x ' style='color:black;'></i></button>";
+            echo "<button class='icon_button' data-bs-target='#addLabModal'><a href='add_pc_details.php?lab_no=$roomno&& id=$i'><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x ' style='color:black;'></i></a></button>";
             echo " ";
             if ($i % 5 == 0) {
                 echo "<br>";
@@ -93,7 +93,6 @@ $pcquantity = $result['pcquantity'];
 
         ?>
 
-        <?php echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>" ; ?>
 
 
 </html>
