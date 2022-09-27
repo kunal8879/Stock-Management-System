@@ -2,7 +2,7 @@
 error_reporting(0);
 session_start();
 require_once '../db_connect.php';
-        $srole = $_SESSION['user'];
+$srole = $_SESSION['user'];
 
 $roomno = $_GET['lab_no'];
 
@@ -49,7 +49,12 @@ $pcquantity = $result['pcquantity'];
         padding-top: 10px;
         margin: 10px;
         background-color: white;
+        border: none;
     }
+
+    /* .fa {
+        color: green;
+    } */
 
     <?php for ($i=0; $i <=$pcquantity; $i++) {
         echo "<style>
@@ -70,9 +75,10 @@ $pcquantity = $result['pcquantity'];
     $rows = mysqli_num_rows($data2);
     for ($a = 1; $a <= $rows; $a++) { $result2=mysqli_fetch_assoc($data2); $id=$result['pc_id']; echo "<style>
         
-        #pcicon$id{
-            color: Red;
-        }</style>" ;} ?>
+            #pcicon$id{
+            color: #ff0000;
+        }
+        </style>" ; } ?>
         </style>
 
 </head>
@@ -96,8 +102,8 @@ $pcquantity = $result['pcquantity'];
         for ($i = 1; $i <= $pcquantity; $i++) {
 
             echo "<button class='icon_button' data-bs-target='#addLabModal'>
-            <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none;>
-            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x ' ></i></a></button>";
+            <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none; color: inherit;>
+            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'></i></a></button>";
             echo " ";
             if ($i % 5 == 0) {
                 echo "<br>";
@@ -107,9 +113,9 @@ $pcquantity = $result['pcquantity'];
 
         ?>
 
-        <?php 
-        if($srole=='Admin' || $srole=='Faculty'){
-        echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>" ; 
+        <?php
+        if ($srole == 'Admin' || $srole == 'Faculty') {
+            echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>";
         }
         ?>
 

@@ -6,17 +6,23 @@ require_once '../db_connect.php';
 $roomno = $_GET['lab_no'];
 $pc_id = $_GET['pc_id'];
 
-$query = "select `pc_name`,`details`
+$query = "SELECT *
  from pc_details WHERE pc_id='$pc_id' AND lab_no='$roomno'";
 $data = mysqli_query($conn, $query);
 $result = mysqli_fetch_assoc($data);
 $pc_name = $result['pc_name'];
 $details = $result['details'];
-if($pc_name==null ){
-    $pc_name="No Registered data";
+$pc_condition = $result['pc_condition'];
+if ($pc_name == null) {
+    $pc_name = "No Registered data";
 }
-if($details == null){
-    $details="No Registered data";
+if ($details == null) {
+    $details = "No Registered data";
+}
+if ($pc_condition == 1) {
+    $condition = "Working";
+}elseif ($pc_condition == 0){
+   $condition = "Not Working"; 
 }
 
 ?>
@@ -48,6 +54,11 @@ if($details == null){
 
             <label for="psw-repeat"><b>Pc details</b></label>
             <input type="text" class="info-input" name="details" placeholder="<?php echo $details; ?>" readonly />
+
+            <label for="psw-repeat"><b>Pc condition</b></label>
+            <input type="text" class="info-input" name="pc_condition" placeholder="<?php echo $condition; ?>"
+                readonly />
+
 
 
             <hr>

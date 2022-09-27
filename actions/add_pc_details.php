@@ -34,9 +34,9 @@ $pc_id = $_GET['id'];
             <input type="text" class="info-input" name="details" placeholder="Pc Details" required />
 
             <label for="psw-repeat"><b>Pc condition</b></label>
-            <input type="radio" id="working" name="pc_condition" value="1">
+            <input type="radio" id="working" name="pc_condition" value="0" required />
               <label for="working">Working</label>
-              <input type="radio" id="not_working" name="pc_condition" value="0">
+              <input type="radio" id="not_working" name="pc_condition" value="1" required />
               <label for="not_working">Not Working</label>
 
             <hr>
