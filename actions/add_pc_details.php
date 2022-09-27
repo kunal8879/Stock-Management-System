@@ -24,7 +24,7 @@ $pc_id = $_GET['id'];
                 value="<?php echo $lab_no; ?>" readonly />
 
             <label for="psw"><b>Pc ID</b></label>
-            <input type="text" class="info-input" name="pc_id" placeholder="<?php echo 'Pc No. ' . $pc_no; ?>"
+            <input type="text" class="info-input" name="pc_id" placeholder="<?php echo $pc_no; ?>"
                 value="<?php echo 'Pc No. ' . $pc_id; ?>" readonly />
 
             <label for="psw"><b>Pc Name</b></label>
