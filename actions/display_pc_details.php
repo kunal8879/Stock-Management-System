@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 require_once '../db_connect.php';
 
 
@@ -7,11 +7,17 @@ $roomno = $_GET['lab_no'];
 $pc_id = $_GET['pc_id'];
 
 $query = "select `pc_name`,`details`
- from pc_details WHERE pc_id='$pc_id'";
+ from pc_details WHERE pc_id='$pc_id' AND lab_no='$roomno'";
 $data = mysqli_query($conn, $query);
 $result = mysqli_fetch_assoc($data);
 $pc_name = $result['pc_name'];
 $details = $result['details'];
+if($pc_name==null ){
+    $pc_name="No Registered data";
+}
+if($details == null){
+    $details="No Registered data";
+}
 
 ?>
 

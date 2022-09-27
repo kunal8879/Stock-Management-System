@@ -1,14 +1,16 @@
 <?php
-
+error_reporting(0);
+session_start();
 require_once '../db_connect.php';
-
+        $srole = $_SESSION['user'];
 
 $roomno = $_GET['lab_no'];
 
-$query = "select * from lab WHERE lab_no='$roomno'";
+$query = "SELECT * from lab WHERE lab_no='$roomno'";
 $data = mysqli_query($conn, $query);
 $result = mysqli_fetch_assoc($data);
 $pcquantity = $result['pcquantity'];
+
 ?>
 
 <!DOCTYPE html>
@@ -60,13 +62,23 @@ $pcquantity = $result['pcquantity'];
     </style>
     ";
     }
-    ?>
-    </style>
+
+
+    // for icon color change
+    $query2 = "SELECT `pc_id` from pc_details WHERE lab_no='$roomno' AND pc_condition=0";
+    $data2 = mysqli_query($conn, $query2);
+    $rows = mysqli_num_rows($data2);
+    for ($a = 1; $a <= $rows; $a++) { $result2=mysqli_fetch_assoc($data2); $id=$result['pc_id']; echo "<style>
+        
+        #pcicon$id{
+            color: Red;
+        }</style>" ;} ?>
+        </style>
 
 </head>
 
 <body>
-    <div style="margin: 90px;">
+    <div style=" margin: 90px;">
 
         <?php
 
@@ -84,8 +96,8 @@ $pcquantity = $result['pcquantity'];
         for ($i = 1; $i <= $pcquantity; $i++) {
 
             echo "<button class='icon_button' data-bs-target='#addLabModal'>
-            <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i'>
-            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x ' style='color:black;'></i></a></button>";
+            <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none;>
+            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x ' ></i></a></button>";
             echo " ";
             if ($i % 5 == 0) {
                 echo "<br>";
@@ -95,7 +107,11 @@ $pcquantity = $result['pcquantity'];
 
         ?>
 
-        <?php echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>" ; ?>
+        <?php 
+        if($srole=='Admin' || $srole=='Faculty'){
+        echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>" ; 
+        }
+        ?>
 
 
 </html>

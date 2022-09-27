@@ -25,7 +25,7 @@ $pc_id = $_GET['id'];
 
             <label for="psw"><b>Pc ID</b></label>
             <input type="text" class="info-input" name="pc_id" placeholder="<?php echo $pc_no; ?>"
-                value="<?php echo 'Pc No. ' . $pc_id; ?>" readonly />
+                value="<?php echo $pc_id; ?>" readonly />
 
             <label for="psw"><b>Pc Name</b></label>
             <input type="text" class="info-input" name="pc_name" placeholder="APSIT Pc Name" required />
