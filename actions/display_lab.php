@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
+
 require_once '../db_connect.php';
 $srole = $_SESSION['user'];
 
@@ -23,41 +24,41 @@ $pcquantity = $result['pcquantity'];
     <script src='https://kit.fontawesome.com/a70a238af9.js' crossorigin='anonymous'></script>
     <title>Lab Info Display</title>
     <style>
-    .roomno1 {
-        font-size: 350%;
-        text-align: center;
-        border: 2px outset #000000;
-        background-color: #00b3aa;
-        margin: 20px 300px 20px 300px;
-    }
+        .roomno1 {
+            font-size: 350%;
+            text-align: center;
+            border: 2px outset #000000;
+            background-color: #00b3aa;
+            margin: 20px 300px 20px 300px;
+        }
 
-    .icon_style {
-        text-align: center;
-        position: absolute;
-        left: -200px;
+        .icon_style {
+            text-align: center;
+            position: absolute;
+            left: -200px;
 
-        height: auto;
-        width: 400px;
+            height: auto;
+            width: 400px;
 
 
-        margin: 80px 500px 80px 500px;
-        border: 2px outset #000000;
-    }
+            margin: 80px 500px 80px 500px;
+            border: 2px outset #000000;
+        }
 
-    .icon_button {
-        width: 50px;
-        padding-top: 10px;
-        margin: 10px;
-        background-color: white;
-        border: none;
-    }
+        .icon_button {
+            width: 50px;
+            padding-top: 10px;
+            margin: 10px;
+            background-color: white;
+            border: none;
+        }
 
-    /* .fa {
+        /* .fa {
         color: green;
     } */
 
-    <?php for ($i=0; $i <=$pcquantity; $i++) {
-        echo "<style>
+        <?php for ($i = 0; $i <= $pcquantity; $i++) {
+            echo "<style>
 #pcicon$i {
             width: 50px;
             padding-top: 10px;
@@ -66,20 +67,24 @@ $pcquantity = $result['pcquantity'];
         }
     </style>
     ";
-    }
+        }
 
 
-    // for icon color change
-    $query2 = "SELECT `pc_id` from pc_details WHERE lab_no='$roomno' AND pc_condition=0";
-    $data2 = mysqli_query($conn, $query2);
-    $rows = mysqli_num_rows($data2);
-    for ($a = 1; $a <= $rows; $a++) { $result2=mysqli_fetch_assoc($data2); $id=$result['pc_id']; echo "<style>
+        // for icon color change
+        $query2 = "SELECT `pc_id` from pc_details WHERE lab_no='$roomno' AND pc_condition=0";
+        $data2 = mysqli_query($conn, $query2);
+        $rows = mysqli_num_rows($data2);
+        for ($a = 1; $a <= $rows; $a++) {
+            $result2 = mysqli_fetch_assoc($data2);
+            $id = $result['pc_id'];
+            echo "<style>
         
             #pcicon$id{
             color: #ff0000;
         }
-        </style>" ; } ?>
-        </style>
+        </style>";
+        } ?>
+    </style>
 
 </head>
 
@@ -100,10 +105,56 @@ $pcquantity = $result['pcquantity'];
 
         echo "<div class='icon_style'>";
         for ($i = 1; $i <= $pcquantity; $i++) {
+        ?>
 
-            echo "<button class='icon_button' data-bs-target='#addLabModal'>
-            <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none; color: inherit;>
-            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'></i></a></button>";
+            <!-- echo "<button class='icon_button' data-bs-target='#pcDetailModal'>
+            <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none; color: inherit;'>
+            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'></i></a></button>"; -->
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
+                </i></button>
+
+            <!-- pc detail model -->
+            <div class="modal fade" id="pcDetailModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./actions/add_lab.php" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label">LAB NO: </label>
+                                    <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="Enter Lab No" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">LAB DETAIL: </label>
+                                    <input type="text" class="form-control" id="lab_detail" name="lab_detail" placeholder="Enter Lab Details" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">LAB ADMIN: </label>
+                                    <input type="text" class="form-control" id="lab_admin" name="lab_admin" placeholder="Enter Lab Admin Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">TOTAL PC: </label>
+                                    <input type="text" class="form-control" id="pcquantity" name="pcquantity" placeholder="Enter Total PC" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
+                                    <button type="submit" name="add_lab" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
+            </i>
+
+
+        <?php
             echo " ";
             if ($i % 5 == 0) {
                 echo "<br>";
