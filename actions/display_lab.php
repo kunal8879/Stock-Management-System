@@ -45,7 +45,7 @@ $pcquantity = $result['pcquantity'];
             border: 2px outset #000000;
         }
 
-        .icon_button {
+        #icon_button {
             width: 50px;
             padding-top: 10px;
             margin: 10px;
@@ -89,6 +89,7 @@ $pcquantity = $result['pcquantity'];
 </head>
 
 <body>
+    
     <div style=" margin: 90px;">
 
         <?php
@@ -111,7 +112,7 @@ $pcquantity = $result['pcquantity'];
             <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none; color: inherit;'>
             <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'></i></a></button>"; -->
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
+            <button type="button" id="icon_button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
                 </i></button>
 
             <!-- pc detail model -->
