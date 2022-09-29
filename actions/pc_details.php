@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $details = $_POST['details'];
     $pc_condition = $_POST['pc_condition'];
 
-    $sql = "INSERT INTO `pc_details`(`lab_no`, `pc_id`, `pc_name`, `details`, `pc_condition`) VALUES ('$lab_no', '$pc_id', '$pc_name', '$details', pc_condition)";
+    $sql = "INSERT INTO `pc_details`(`lab_no`, `pc_id`, `pc_name`, `details`, `pc_condition`) VALUES ('$lab_no', '$pc_id', '$pc_name', '$details', '$pc_condition')";
 
     $sql_run = mysqli_query($conn, $sql);
 
