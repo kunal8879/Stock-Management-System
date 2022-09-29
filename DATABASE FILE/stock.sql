@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2022 at 05:51 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Sep 29, 2022 at 12:14 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -144,17 +144,19 @@ CREATE TABLE `supplier` (
   `supplier_id` int(11) NOT NULL,
   `supplier_name` varchar(200) NOT NULL,
   `supplier_add` varchar(200) NOT NULL,
-  `supplier_phone` int(11) NOT NULL
+  `supplier_phone` int(11) NOT NULL,
+  `added_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`supplier_id`, `supplier_name`, `supplier_add`, `supplier_phone`) VALUES
-(1, 'supplier', 'abc thane west 111111', 1234567890),
-(2, 'rookie', 'abc thane east 222222', 1234567890),
-(3, 'Atharva', 'abc thane west 000000', 1234567890);
+INSERT INTO `supplier` (`supplier_id`, `supplier_name`, `supplier_add`, `supplier_phone`, `added_on`) VALUES
+(1, 'supplier', 'abc thane west 111111', 1234567890, '0000-00-00 00:00:00'),
+(2, 'rookie', 'abc thane east 222222', 1234567890, '0000-00-00 00:00:00'),
+(3, 'Atharva', 'abc thane west 000000', 1234567890, '0000-00-00 00:00:00'),
+(5, 'Koi toh hai', 'pata nahi kidr rehta hai', 84713985, '2002-05-06 12:12:12');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +218,7 @@ ALTER TABLE `lab`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
