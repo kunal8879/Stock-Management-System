@@ -1,6 +1,10 @@
 <?php
 require_once 'db_connect.php';
-require_once 'include/header.php'
+require_once 'include/header.php';
+
+if($_SESSION['user']==null){
+    header('location: login.php');
+}
 ?>
 
 <div style="text-align: center; margin-bottom: 30px; font-size: 30px;">

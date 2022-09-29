@@ -53,9 +53,9 @@ $pcquantity = $result['pcquantity'];
             border: none;
         }
 
-        /* .fa {
-        color: green;
-    } */
+        .draganddrop{
+            padding-left: 900px;
+        }
 
         <?php for ($i = 0; $i <= $pcquantity; $i++) {
             echo "<style>
@@ -170,6 +170,11 @@ $pcquantity = $result['pcquantity'];
             echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>";
         }
         ?>
+        <main>
+            <div class="draganddrop">
+            <?php include('timetable.php');  ?>
+            </div>
+        </main>
 
 
 </html>
