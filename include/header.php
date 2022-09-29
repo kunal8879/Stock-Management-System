@@ -32,8 +32,8 @@ $username = $_SESSION['username'];
                             <li><a href="./allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
                         </ul>
                     </li>
-                    <li><a href=" ./lab.php">Labs</a></li>
-                    <li><a href="#">Supplier</a></li>
+                    <li><a href="./lab.php">Labs</a></li>
+                    <li><a href="./supplier.php">Supplier</a></li>
                     <li><a href="card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
                         <ul style="padding: 0; margin: 0; text-align: center;">
                             <li><a href="./manage_faculty_details.php" style="padding: 0px;">Manage Faculty</a></li>
