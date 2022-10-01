@@ -34,7 +34,7 @@ $pcquantity = $result['pcquantity'];
 
         .icon_style {
             text-align: center;
-            position: absolute;
+            position: center;
             left: -200px;
 
             height: auto;
@@ -54,13 +54,13 @@ $pcquantity = $result['pcquantity'];
         }
 
         .draganddrop{
-            padding-left: 900px;
+            padding-left: 300px;
         }
 
         <?php for ($i = 0; $i <= $pcquantity; $i++) {
             echo "<style>
 #pcicon$i {
-            width: 50px;
+            width: 30px;
             padding-top: 10px;
             padding-right: 20px;
             margin: 10px;
@@ -112,10 +112,10 @@ $pcquantity = $result['pcquantity'];
             <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none; color: inherit;'>
             <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'></i></a></button>"; -->
 
-            <button type="button" id="icon_button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
+            <!-- <button type="button" id="icon_button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
                 </i></button>
 
-            <!-- pc detail model -->
+            
             <div class="modal fade" id="pcDetailModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -149,9 +149,9 @@ $pcquantity = $result['pcquantity'];
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
+            <i id='pcicon<?php echo $i;?>' class='fa-solid fa-desktop  fa-2x fa-color:green'>
             </i>
 
 
@@ -167,14 +167,18 @@ $pcquantity = $result['pcquantity'];
 
         <?php
         if ($srole == 'Admin' || $srole == 'Faculty') {
-            echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>";
+            echo "<button><a href='add_pc_details_clone.php?lab_no=$roomno'>Add Pc Details</a></button>
+        
+        
+        <main>
+            <div class='draganddrop'>";
+
+            include('timetable.php');
+
+           echo  "</div>
+        </main>";
         }
         ?>
-        <main>
-            <div class="draganddrop">
-            <?php include('timetable.php');  ?>
-            </div>
-        </main>
 
 
 </html>
