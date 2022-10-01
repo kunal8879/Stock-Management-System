@@ -21,8 +21,8 @@ if ($details == null) {
 }
 if ($pc_condition == 1) {
     $condition = "Working";
-}elseif ($pc_condition == 0){
-   $condition = "Not Working"; 
+} elseif ($pc_condition == 0) {
+    $condition = "Not Working";
 }
 
 ?>
@@ -35,9 +35,12 @@ if ($pc_condition == 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <script src="../css/bootstrap.js"></script>
     <form action="" method="POST">
         <div class="container">
             <h1>Pc Details</h1>
@@ -56,8 +59,7 @@ if ($pc_condition == 1) {
             <input type="text" class="info-input" name="details" placeholder="<?php echo $details; ?>" readonly />
 
             <label for="psw-repeat"><b>Pc condition</b></label>
-            <input type="text" class="info-input" name="pc_condition" placeholder="<?php echo $condition; ?>"
-                readonly />
+            <input type="text" class="info-input" name="pc_condition" placeholder="<?php echo $condition; ?>" readonly />
 
 
 
