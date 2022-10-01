@@ -40,6 +40,7 @@ $pcquantity = $result['pcquantity'];
 
             margin: 80px 500px 80px 500px;
             border: 2px outset #000000;
+            
         }
 
         .icon_button {
@@ -68,7 +69,7 @@ $pcquantity = $result['pcquantity'];
         $rows = mysqli_num_rows($data2);
         for ($a = 1; $a <= $rows; $a++) {
             $result2 = mysqli_fetch_assoc($data2);
-            $id = $result['pc_id'];
+            $id = $result2['pc_id'];
             echo "<style>
         
             #pcicon$id{
@@ -101,7 +102,7 @@ $pcquantity = $result['pcquantity'];
 
             echo "<button class='icon_button' >
             <a href='add_pc_details.php?lab_no=$roomno&& id=$i' style='text-decoration: none; color:inherit;>
-            <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x '></i></a></button>";
+            <i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>";
             echo " ";
             if ($i % 5 == 0) {
                 echo "<br>";
