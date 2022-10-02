@@ -68,7 +68,7 @@ require_once 'include/header.php'
 </div>
 
 <!-- table -->
-<table class="content-table" id="tableData sortTable" style="border-collapse: separate;">
+<table class="content-table" id="tableData" style="border-collapse: separate;">
     <thead>
         <tr>
             <th>SR.</th>
