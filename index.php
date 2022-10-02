@@ -2,9 +2,9 @@
 require_once 'db_connect.php';
 require_once 'include/header_student.php';
 
-if ($_SESSION['user'] == null) {
-    header('location: login.php');
-}
+// if ($_SESSION['user'] == null) {
+//     header('location: login.php');
+// }
 ?>
 
 

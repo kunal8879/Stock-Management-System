@@ -25,8 +25,13 @@ $username = $_SESSION['username'];
     <div style="margin: 90px;">
         <header>
             <?php
-            if ($srole == 'Admin' || $srole == 'Faculty') {
+            if ($srole == null) {
             ?>
+                <img src='../images/logo3.png' alt='Logo' class='site-logo'>
+
+            <?php   } else {
+            ?>
+
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
@@ -47,8 +52,8 @@ $username = $_SESSION['username'];
 
 
                 </div>
-            <?php   } else {
-                echo "<img src='../images/logo3.png' alt='Logo' class='site-logo'>";
+
+            <?php
             }
             ?>
 
@@ -91,7 +96,7 @@ $username = $_SESSION['username'];
             <?php } else { ?>
                 <nav class="navnavnav">
                     <ul>
-                        <li><a href="../home.php">Home</a></li>
+                        <li><a href="../index.php">Home</a></li>
                         </li>
                 </nav>
             <?php } ?>

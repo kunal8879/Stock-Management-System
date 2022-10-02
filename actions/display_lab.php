@@ -46,7 +46,7 @@ $pcquantity = $result['pcquantity'];
             border: 2px outset #000000;
         }
 
-        #icon_button {
+        .icon_button {
             width: 50px;
             padding-top: 10px;
             margin: 10px;
