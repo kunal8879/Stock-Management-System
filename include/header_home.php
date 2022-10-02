@@ -24,60 +24,76 @@ $username = $_SESSION['username'];
     <!-- navigation bar -->
     <div style="margin: 90px;">
         <header>
-<?php
-                if($srole=="Admin" || $srole=="Faculty"){
-                    ?>
-           <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                
-                <a href="#">Add Pc Details</a>
-                <a href="#">Upload TimeTable</a>
+            <?php
+            if ($srole == 'Admin' || $srole == 'Faculty') {
+            ?>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                    <a href="#">Add Pc Details</a>
+                    <a href="#">Upload TimeTable</a>
 
-            <script>
-                function openNav() {
-                    document.getElementById("mySidenav").style.width = "200px";
-                }
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-                function closeNav() {
-                    document.getElementById("mySidenav").style.width = "0";
-                }
-            </script>
-                
-                
-            </div>
-             <?php   }
-            else{
+                    <script>
+                        function openNav() {
+                            document.getElementById("mySidenav").style.width = "200px";
+                        }
+
+                        function closeNav() {
+                            document.getElementById("mySidenav").style.width = "0";
+                        }
+                    </script>
+
+
+                </div>
+            <?php   } else {
                 echo "<img src='../images/logo3.png' alt='Logo' class='site-logo'>";
-                }
-                ?>
-
-
-            
+            }
+            ?>
 
 
 
-            <!-- <img src="../images/logo3.png" alt="Logo" class="site-logo" style="padding-right:300x;"> -->
-            <nav class="navnavnav">
-                <ul>
-                    <li><a href="./home.php">Home</a></li>
-                    <li><a href="#">Items &plus;</a>
-                        <ul style="padding: 0;">
-                            <li><a href="./items.php" style="padding: 7px; text-align: center;">Items</a></li>
-                            <li><a href="./allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../lab.php">Labs</a></li>
-                    <li><a href="../supplier.php">Supplier</a></li>
-                    <li><a href="../card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
-                        <ul style="padding: 0; margin: 0; text-align: center;">
-                            <li><a href="../manage_faculty_details.php" style="padding: 0px;">Manage Faculty</a></li>
-                            <li><a href="../logout.php">Logout</a></li>
-                        </ul>
-                    </li>
 
 
-            </nav>
+
+            <?php if ($srole == 'Admin') { ?>
+                <nav class="navnavnav">
+                    <ul>
+                        <li><a href="../home.php">Home</a></li>
+                        <li><a href="#">Items &plus;</a>
+                            <ul style="padding: 0;">
+                                <li><a href="../items.php" style="padding: 7px; text-align: center;">Items</a></li>
+                                <li><a href="../allocate.php" style="padding: 7px; text-align: center;">Allocate</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../lab.php">Labs</a></li>
+                        <li><a href="../supplier.php">Supplier</a></li>
+                        <li><a href="../card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
+                            <ul style="padding: 0; margin: 0; text-align: center;">
+                                <li><a href="../manage_faculty_details.php" style="padding: 0px;">Manage Faculty</a></li>
+                                <li><a href="../logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+                </nav>
+            <?php } elseif ($srole == 'Faculty') { ?>
+                <nav class="navnavnav">
+                    <ul>
+                        <li><a href="../home.php">Home</a></li>
+
+                        <li><a href="../lab.php">Labs</a></li>
+                        <li><a href="../card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
+                            <ul style="padding: 0; margin: 0; text-align: center;">
+                                <li><a href="../logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+                </nav>
+            <?php } else { ?>
+                <nav class="navnavnav">
+                    <ul>
+                        <li><a href="../home.php">Home</a></li>
+                        </li>
+                </nav>
+            <?php } ?>
         </header>
     </div>
