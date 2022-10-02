@@ -2,6 +2,7 @@
 session_start();
 $srole = $_SESSION['user'];
 $username = $_SESSION['username'];
+$lab_no = $_SESSION['lab_no'];
 ?>
 
 <!DOCTYPE html>
@@ -26,19 +27,17 @@ $username = $_SESSION['username'];
         <header>
             <?php
             if ($srole == null) {
-            ?>
-                <img src='../images/logo3.png' alt='Logo' class='site-logo'>
 
-            <?php   } else {
+                echo "<img src='../images/logo3.png' alt='Logo' class='site-logo'>";
+            } else {
             ?>
 
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-                    <a href="#">Add Pc Details</a>
-                    <a href="#">Upload TimeTable</a>
+                    <?php echo "<a href='add_pc_details_clone.php?lab_no=$lab_no'>Add Pc Details</a>
+                    <a href='#'>Upload TimeTable</a>"; ?>
 
-                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
                     <script>
                         function openNav() {
@@ -57,9 +56,11 @@ $username = $_SESSION['username'];
             }
             ?>
 
-
-
-
+            <?php
+            if ($srole == 'Admin' || $srole == 'Faculty') {
+                echo "<span style='font-size:30px;cursor:pointer' onclick='openNav()'>&#9776;</span>";
+            }
+            ?>
 
 
             <?php if ($srole == 'Admin') { ?>
@@ -84,9 +85,8 @@ $username = $_SESSION['username'];
             <?php } elseif ($srole == 'Faculty') { ?>
                 <nav class="navnavnav">
                     <ul>
-                        <li><a href="../home.php">Home</a></li>
+                        <li><a href="../lab_faculty.php">Home</a></li>
 
-                        <li><a href="../lab.php">Labs</a></li>
                         <li><a href="../card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
                             <ul style="padding: 0; margin: 0; text-align: center;">
                                 <li><a href="../logout.php">Logout</a></li>
@@ -97,6 +97,7 @@ $username = $_SESSION['username'];
                 <nav class="navnavnav">
                     <ul>
                         <li><a href="../index.php">Home</a></li>
+                        <li><a href="../login.php">LogIn</a></li>
                         </li>
                 </nav>
             <?php } ?>

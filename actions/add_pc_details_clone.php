@@ -1,9 +1,9 @@
 <?php
-
+session_start();
 require_once '../db_connect.php';
 
 
-$roomno = $_GET['lab_no'];
+$roomno = $_SESSION['lab_no'];
 
 $query = "select * from lab WHERE lab_no='$roomno'";
 $data = mysqli_query($conn, $query);

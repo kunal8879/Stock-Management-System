@@ -1,17 +1,13 @@
 <?php
-// Include the database configuration file  
-require_once './db_connect.php';
+session_start();
+$_SESSION['lab_no'] = $roomno;
 
-// Get image data from database 
-$result = $db->query("SELECT `timetable` FROM lab ");
-?>
+$query = "SELECT `timetable` from lab where lab_no=$roomno";
+$data = mysqli_query($conn, $query);
+$result = mysqli_fetch_assoc($data);
+$detail = $result['timetable'];
 
-<?php if ($result->num_rows > 0) { ?>
-    <div class="gallery">
-        <?php while ($row = $result->fetch_assoc()) { ?>
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
-        <?php } ?>
-    </div>
-<?php } else { ?>
-    <p class="status error">Image(s) not found...</p>
-<?php } ?>
+        echo "<div class='img_container'>";
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($result['timetable']) . '"/>';
+        echo "</div>";
+    ?>
