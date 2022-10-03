@@ -13,6 +13,7 @@ $_SESSION['lab_no'] = $roomno;
 
     <style>
         .drop-zone {
+            margin-top: 20px;
             max-width: 200px;
             height: 200px;
             padding: 25px;
@@ -64,11 +65,24 @@ $_SESSION['lab_no'] = $roomno;
 
         .try01 {
 
-            padding-top: 300px;
+            padding: 10px 10px 10px 10px;
             border-radius: 15px;
             height: auto;
+            margin-top: 200px;
 
+            
 
+        }
+        .try02
+        {
+            position: relative;
+            top: 120px;
+            padding-top: 10px;
+            border-radius: 15px;
+            height: auto;
+            margin-top: 10px;
+            width: 200px;
+           
         }
 
         .img_container {
@@ -93,7 +107,7 @@ $_SESSION['lab_no'] = $roomno;
         <div class="drop-zone">
             <form action=./upload.php method="post" enctype="multipart/form-data">
 
-                <input type="file" name="image">
+                <input class="try02"type="file" name="image">
                 <input class="try01" type="submit" name="submit" value="Upload">
             </form>
         </div>

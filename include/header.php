@@ -17,9 +17,9 @@ $username = $_SESSION['username'];
 </head>
 
 <body>
-    <script src="../css/bootstrap.js"></script>
-    <script src="../include/search.js"></script>
-    <script src="../include/sortTest.js"></script>
+        <script src="css/bootstrap.js"></script>
+        <script src="include/search.js"></script>
+        <script src="include/sortTest.js"></script>
 
     <!-- navigation bar -->
     <div style="margin: 90px;">
@@ -42,8 +42,7 @@ $username = $_SESSION['username'];
                             <li><a href=" logout.php">Logout</a></li>
                         </ul>
                     </li>
-
-
+                </ul>
             </nav>
         </header>
     </div>

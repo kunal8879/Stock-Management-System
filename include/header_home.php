@@ -58,7 +58,7 @@ $lab_no = $_SESSION['lab_no'];
 
             <?php
             if ($srole == 'Admin' || $srole == 'Faculty') {
-                echo "<span style='font-size:30px;cursor:pointer' onclick='openNav()'>&#9776;</span>";
+                echo "<span style='font-size:30px;cursor:pointer;margin-left:20px;' onclick='openNav()'>&#9776;</span>";
             }
             ?>
 

@@ -19,6 +19,8 @@ $pcquantity = $result['pcquantity'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://kit.fontawesome.com/a70a238af9.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Lab Info Display</title>
     <style>
         .roomno1 {
@@ -40,7 +42,7 @@ $pcquantity = $result['pcquantity'];
 
             margin: 80px 500px 80px 500px;
             border: 2px outset #000000;
-            
+
         }
 
         .icon_button {
@@ -76,13 +78,15 @@ $pcquantity = $result['pcquantity'];
             color: #ff0000;
         }
         </style>";
-    }
+        }
         ?>
     </style>
 
 </head>
 
 <body>
+    <script src="../css/bootstrap.js"></script>
+
     <div style="margin: 90px;">
 
         <?php
@@ -99,11 +103,59 @@ $pcquantity = $result['pcquantity'];
 
         echo "<div class='icon_style'>";
         for ($i = 1; $i <= $pcquantity; $i++) {
+        ?>
 
-            echo "<button class='icon_button' >
-            <a href='add_pc_details.php?lab_no=$roomno&& id=$i' style='text-decoration: none; color:inherit;>
-            <i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>";
-            echo " ";
+            <!-- <button class='icon_button'>
+                <a href="add_pc_details.php?lab_no=$roomno&& id=$i" style="text-decoration: none; color:inherit;">
+                    <i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button> -->
+
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>
+
+            <!-- add item model -->
+            <div class="modal fade" id="displayPcDetailsModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Pc Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label">Lab No:</label>
+                                    <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc ID:</label>
+                                    <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc Name:</label>
+                                    <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="psw"><b>Pc condition</b></label>
+                                    <label class="container">Working
+                                        <input type="radio" name="pc_condition" value="1" required />
+                                    </label>
+                                    <label class="container">Not Working
+                                        <input type="radio" name="pc_condition" value="0" required />
+
+                                    </label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
+                                    <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php
+
             if ($i % 5 == 0) {
                 echo "<br>";
             }

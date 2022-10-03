@@ -18,7 +18,6 @@ $pc_id = $_GET['id'];
         <div class="container">
             <h1>Pc Details</h1>
             <hr>
-
             <label for="psw"><b>Lab No</b></label>
             <input type="text" class="info-input" name="lab_no" placeholder="<?php echo $lab_no; ?>" value="<?php echo $lab_no; ?>" readonly />
 
@@ -46,7 +45,6 @@ $pc_id = $_GET['id'];
 
             <button type="submit" name="submit" class="registerbtn">Add</button>
         </div>
-
 
     </form>
 
