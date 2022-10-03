@@ -58,7 +58,7 @@ $_SESSION['lab_no'] = $roomno;
 
         .draganddrop {
             padding-left: 300px;
-            border:10px;
+            border: 10px;
         }
 
         body {
@@ -160,94 +160,94 @@ $_SESSION['lab_no'] = $roomno;
 
         echo "<div class='icon_style'>";
         for ($i = 1; $i <= $pcquantity; $i++) {
+        ?>
 
-            echo "<button class='icon_button' data-bs-target='#pcDetailModal'>
-                <a href='display_pc_details.php?lab_no=$roomno&&pc_id=$i' style='text-decoration: none; color: inherit;'>
-                    <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'></i></a></button>";
-
-            //             <button type="button" id="icon_button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
-            //                 </i></button>
-
-            //             <!-- pc detail model -->
-            //             <div class="modal fade" id="pcDetailModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-            //                 <div class="modal-dialog">
-            //                     <div class="modal-content">
-            //                         <div class="modal-header">
-            //                             <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Details</h5>
-            //                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            //                         </div>
-            //                         <div class="modal-body">
-            //                             <form action="./actions/add_lab.php" method="POST">
-            //                                 <div class="mb-3">
-            //                                     <label class="form-label">LAB NO: </label>
-            //                                     <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="Enter Lab No" required>
-            //                                 </div>
-            //                                 <div class="mb-3">
-            //                                     <label class="form-label">LAB DETAIL: </label>
-            //                                     <input type="text" class="form-control" id="lab_detail" name="lab_detail" placeholder="Enter Lab Details" required>
-            //                                 </div>
-            //                                 <div class="mb-3">
-            //                                     <label class="form-label">LAB ADMIN: </label>
-            //                                     <input type="text" class="form-control" id="lab_admin" name="lab_admin" placeholder="Enter Lab Admin Name" required>
-            //                                 </div>
-            //                                 <div class="mb-3">
-            //                                     <label class="form-label">TOTAL PC: </label>
-            //                                     <input type="text" class="form-control" id="pcquantity" name="pcquantity" placeholder="Enter Total PC" required>
-            //                                 </div>
-            //                                 <div class="modal-footer">
-            //                                     <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
-            //                                     <button type="submit" name="add_lab" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
-            //                                 </div>
-            //                             </form>
-            //                         </div>
-            //                     </div>
-            //                 </div>
-            //             </div>
-
-            //             <i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
-            //             </i>
-            // =======
-            //             <!-- <button type="button" id="icon_button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pcDetailModal" style=" margin-left: 50px; background-color: #00b3aa;"><i id='pcicon$i' class='fa-solid fa-desktop  fa-2x fa-color:green'>
-            //                 </i></button>
+            <?php
+            $query = "SELECT *
+ from pc_details WHERE pc_id='$i' AND lab_no='$roomno'";
+            $data = mysqli_query($conn, $query);
+            $result = mysqli_fetch_assoc($data);
+            $pc_name = $result['pc_name'];
+            $details = $result['details'];
+            $pc_condition = $result['pc_condition'];
+            if ($pc_name == null) {
+                $pc_name = "No Registered data";
+            }
+            if ($details == null) {
+                $details = "No Registered data";
+            }
+            if ($pc_condition == 1) {
+                $condition = "Working";
+            } elseif ($pc_condition == 0) {
+                $condition = "Not Working";
+            }
+            ?>
 
 
-            // <div class="modal fade" id="pcDetailModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-            //     <div class="modal-dialog">
-            //         <div class="modal-content">
-            //             <div class="modal-header">
-            //                 <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Details</h5>
-            //                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            //             </div>
-            //             <div class="modal-body">
-            //                 <form action="./actions/add_lab.php" method="POST">
-            //                     <div class="mb-3">
-            //                         <label class="form-label">LAB NO: </label>
-            //                         <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="Enter Lab No" required>
-            //                     </div>
-            //                     <div class="mb-3">
-            //                         <label class="form-label">LAB DETAIL: </label>
-            //                         <input type="text" class="form-control" id="lab_detail" name="lab_detail" placeholder="Enter Lab Details" required>
-            //                     </div>
-            //                     <div class="mb-3">
-            //                         <label class="form-label">LAB ADMIN: </label>
-            //                         <input type="text" class="form-control" id="lab_admin" name="lab_admin" placeholder="Enter Lab Admin Name" required>
-            //                     </div>
-            //                     <div class="mb-3">
-            //                         <label class="form-label">TOTAL PC: </label>
-            //                         <input type="text" class="form-control" id="pcquantity" name="pcquantity" placeholder="Enter Total PC" required>
-            //                     </div>
-            //                     <div class="modal-footer">
-            //                         <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
-            //                         <button type="submit" name="add_lab" class="btn btn-primary" style="background-color: #00b3aa;">ADD</button>
-            //                     </div>
-            //                 </form>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div> 
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>
 
+            <!-- add item model -->
+            <div class="modal fade" id="displayPcDetailsModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Pc Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./query.php" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label">Lab No:</label>
+                                    <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc ID:</label>
+                                    <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="<?php echo $i; ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc Name:</label>
+                                    <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="<?php echo $pc_name; ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc Details:</label>
+                                    <input type="text" class="form-control" id="details" name="details" placeholder="<?php echo $details; ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc Condition:</label>
+                                    <input type="text" class="form-control" id="condition" name="condition" placeholder="<?php echo $condition; ?>" readonly>
+                                </div>
 
-            echo " ";
+                                <?php if ($srole == 'Admin' || $srole == 'Faculty') {  ?>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Query:</label>
+                                        <input type="text" class="form-control" id="condition" name="condition" placeholder="Enter if any problem" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="psw"><b>Pc condition</b></label>
+                                        <label class="container">Working
+                                            <input type="radio" name="pc_condition" value="1" required />
+                                        </label>
+                                        <label class="container">Not Working
+                                            <input type="radio" name="pc_condition" value="0" required />
+
+                                        </label>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
+                                        <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
+                                    </div>
+                                <?php  }  ?>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php
+
             if ($i % 5 == 0) {
                 echo "<br>";
             }
@@ -274,7 +274,7 @@ $_SESSION['lab_no'] = $roomno;
 
             echo  "</div>
         </main>";
-        }else{
+        } else {
             echo "<main>
             <div class='draganddrop'>";
 

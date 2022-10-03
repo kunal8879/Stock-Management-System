@@ -23,4 +23,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // header('Location: ../lab.php');
-echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/add_pc_details_clone.php?lab_no=$lab_no'>";
+// echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/add_pc_details_clone.php?lab_no=$lab_no'>";

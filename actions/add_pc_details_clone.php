@@ -56,10 +56,10 @@ $pcquantity = $result['pcquantity'];
         <?php for ($i = 0; $i <= $pcquantity; $i++) {
             echo "<style>
 #pcicon$i {
-            width: 50px;
+            width: 30px;
             padding-top: 10px;
             padding-right: 20px;
-            margin: 10px;
+            
         }
     </style>
     ";
@@ -110,7 +110,7 @@ $pcquantity = $result['pcquantity'];
                     <i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button> -->
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>
 
             <!-- add item model -->
             <div class="modal fade" id="displayPcDetailsModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -121,18 +121,22 @@ $pcquantity = $result['pcquantity'];
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="POST">
+                            <form action="./pc_details.php" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Lab No:</label>
-                                    <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="" required>
+                                    <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" value="<?php echo $roomno; ?>" readonly>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Pc ID:</label>
-                                    <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="" required>
+                                    <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="" value="<?php echo $i; ?>" readonly>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Pc Name:</label>
                                     <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pc Details:</label>
+                                    <input type="text" class="form-control" id="details" name="details" placeholder="" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="psw"><b>Pc condition</b></label>
