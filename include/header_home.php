@@ -82,7 +82,8 @@ $lab_no = $_SESSION['lab_no'];
                             </ul>
                         </li>
                 </nav>
-            <?php } elseif ($srole == 'Faculty') { ?>
+            <?php }
+             elseif ($srole == 'Faculty') { ?>
                 <nav class="navnavnav">
                     <ul>
                         <li><a href="../lab_faculty.php">Home</a></li>

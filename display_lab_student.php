@@ -2,11 +2,11 @@
 error_reporting(0);
 session_start();
 
-require_once '../db_connect.php';
-require_once '../include/header_home.php';
+require_once 'db_connect.php';
+require_once 'include/header_student.php';
 $srole = $_SESSION['user'];
-if($srole==null){
-    $srole='Student';
+if ($srole == null) {
+    $srole = 'Student';
 }
 
 $roomno = $_GET['lab_no'];
@@ -266,18 +266,7 @@ $_SESSION['lab_no'] = $roomno;
 
 
         <?php
-        if ($srole == 'Admin' || $srole == 'Faculty') {
-
-
-
-            echo "<main>
-            <div class='draganddrop'>";
-
-            include('timetable.php');
-
-            echo  "</div>
-        </main>";
-        } else {
+        
             echo "<main>
             <div class='draganddrop'>";
 
@@ -285,7 +274,7 @@ $_SESSION['lab_no'] = $roomno;
 
             echo  "</div>
         </main>";
-        }
+        
         ?>
 
 

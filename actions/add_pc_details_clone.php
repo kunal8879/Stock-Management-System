@@ -110,7 +110,7 @@ $pcquantity = $result['pcquantity'];
                     <i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button> -->
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></button>
 
             <!-- add item model -->
             <div class="modal fade" id="displayPcDetailsModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -121,7 +121,10 @@ $pcquantity = $result['pcquantity'];
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="./pc_details.php" method="POST">
+
+                            <?php for($i=0; $i <= $pcquantity; $i++){ ?>
+                            
+                                <form action="./pc_details.php" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Lab No:</label>
                                     <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" value="<?php echo $roomno; ?>" readonly>
@@ -148,6 +151,9 @@ $pcquantity = $result['pcquantity'];
 
                                     </label>
                                 </div>
+                                
+                                <?php } ?>
+                                
                                 <div class="modal-footer">
                                     <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
                                     <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>

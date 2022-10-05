@@ -45,7 +45,7 @@ require_once 'include/header_student.php';
         <tr>
             <!--showing lab details -->
             <td><?= $i ?></td>
-            <td><?php echo "<a href='actions/display_lab.php?lab_no=$lab[lab_no]'>"; ?> <?= $lab['lab_no'] ?></td>
+            <td><?php echo "<a href='display_lab_student.php?lab_no=$lab[lab_no]'>"; ?> <?= $lab['lab_no'] ?></td>
             <td><?= $lab['lab_detail'] ?></td>
             <td><?= $lab['lab_admin'] ?></td>
 
