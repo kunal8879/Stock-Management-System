@@ -8,8 +8,8 @@ y = sys.argv[2]
 
 fromaddr = 'atharvasarfare40@gmail.com'  
 toaddrs  = 'gammingworld18@gmail.com'  
-# subject = 'Issue in Lab No. '+ x  
-msg = 'Query: '+ y
+msg = 'Issue in Lab No. '+ x
+# msg = 'Query: '
 
 username = 'atharvasarfare40@gmail.com'  
 password = 'xlzgfucisjhnwuyr'

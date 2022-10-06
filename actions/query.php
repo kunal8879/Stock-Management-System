@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($sql_run == true) {
         $_SESSION['success'] = 'Item Added Successfully.'; 
 
-       $result =shell_exec("python query.py $lab_no $msg");
+       $result =shell_exec("python query.py '$lab_no', '$msg'");
 
         if($result){
 
