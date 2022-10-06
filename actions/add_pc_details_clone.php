@@ -110,10 +110,10 @@ $pcquantity = $result['pcquantity'];
                     <i id='pcicon$i' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button> -->
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal<?php echo $i['pc_id'] ?>"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></button>
 
             <!-- add item model -->
-            <div class="modal fade" id="displayPcDetailsModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="displayPcDetailsModal<?php echo $i['pc_id'] ?>" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -122,43 +122,43 @@ $pcquantity = $result['pcquantity'];
                         </div>
                         <div class="modal-body">
 
-                            <?php for($i=0; $i <= $pcquantity; $i++){ ?>
-                            
-                                <form action="./pc_details.php" method="POST">
-                                <div class="mb-3">
-                                    <label class="form-label">Lab No:</label>
-                                    <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" value="<?php echo $roomno; ?>" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Pc ID:</label>
-                                    <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="" value="<?php echo $i; ?>" readonly>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Pc Name:</label>
-                                    <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Pc Details:</label>
-                                    <input type="text" class="form-control" id="details" name="details" placeholder="" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="psw"><b>Pc condition</b></label>
-                                    <label class="container">Working
-                                        <input type="radio" name="pc_condition" value="1" required />
-                                    </label>
-                                    <label class="container">Not Working
-                                        <input type="radio" name="pc_condition" value="0" required />
+                            <?php for ($i = 0; $i <= $pcquantity; $i++) { ?>
 
-                                    </label>
-                                </div>
-                                
+                                <form action="./pc_details.php" method="POST">
+                                    <div class="mb-3">
+                                        <label class="form-label">Lab No:</label>
+                                        <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" value="<?php echo $roomno; ?>" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Pc ID:</label>
+                                        <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="" value="<?php echo $i; ?>" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Pc Name:</label>
+                                        <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Pc Details:</label>
+                                        <input type="text" class="form-control" id="details" name="details" placeholder="" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="psw"><b>Pc condition</b></label>
+                                        <label class="container">Working
+                                            <input type="radio" name="pc_condition" value="1" required />
+                                        </label>
+                                        <label class="container">Not Working
+                                            <input type="radio" name="pc_condition" value="0" required />
+
+                                        </label>
+                                    </div>
+
                                 <?php } ?>
-                                
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
                                     <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
                                 </div>
-                            </form>
+                                </form>
                         </div>
                     </div>
                 </div>

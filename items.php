@@ -103,6 +103,7 @@ require_once 'include/header.php'
                     <td><?= $item['supplier_name'] ?></td>
                     <td><?= $item['lab_no'] ?></td>
                     <td style="padding: 8px; text-align: center;"><?= $item['supplied_at'] ?></td>
+
                     <td>
 
                         <!-- edit item button-->
