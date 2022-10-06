@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
        $result =shell_exec("python query.py $lab_no $msg $uname");
 
-       echo $result;
+    //    echo $result;
 
         
     }
