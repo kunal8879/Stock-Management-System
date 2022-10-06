@@ -220,29 +220,7 @@ $_SESSION['lab_no'] = $roomno;
                                     <input type="text" class="form-control" id="condition" name="condition" placeholder="<?php echo $condition; ?>" readonly>
                                 </div>
 
-                                <?php if ($srole == 'Admin' || $srole == 'Faculty') {  ?>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Query:</label>
-                                        <input type="text" class="form-control" id="condition" name="msg" placeholder="Enter if any problem" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="psw"><b>Pc condition</b></label>
-                                        <label class="container">Working
-                                            <input type="radio" name="pc_condition" value="1" required />
-                                        </label>
-                                        <label class="container">Not Working
-                                            <input type="radio" name="pc_condition" value="0" required />
-
-                                        </label>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
-                                        <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
-                                    </div>
-                                <?php  }  ?>
+                                
                             </form>
                         </div>
                     </div>

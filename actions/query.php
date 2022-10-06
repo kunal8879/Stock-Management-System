@@ -17,16 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($sql_run == true) {
         $_SESSION['success'] = 'Item Added Successfully.'; 
 
-       $result =shell_exec("python query.py '$lab_no', '$msg'");
+       $result =shell_exec("python query.py $lab_no $msg $uname");
 
-        if($result){
+       echo $result;
 
-        echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/display_lab.php?lab_no=$lab_no'>";
-        }
+        
     }
 } else {
     $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
 }
+
+
+
+// echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/display_lab.php?lab_no=$lab_no'>";
 
 
 ?>
