@@ -1,18 +1,24 @@
 import sys
 import smtplib
 
-x = sys.argv[1]
-y = sys.argv[2]
+a = sys.argv[1]
+b = sys.argv[2]
+c = sys.argv[3]
 
-
+# print(x)
+# print(y)
 
 fromaddr = 'atharvasarfare40@gmail.com'  
 toaddrs  = 'gammingworld18@gmail.com'  
-# subject = 'Issue in Lab No. '+ x  
-msg = 'Query: '+ y
+# msg = 'Issue in Lab No. '+ x + ' Query: '+ y
+# msg= a + b + c
+
+
+msg=f'Subject: Issue In lab No.{a}\n\n body:{b}\n\n from:{c}'
+# print(msg)
 
 username = 'atharvasarfare40@gmail.com'  
-password = 'xlzgfucisjhnwuyr'
+password = 'ewjfwdvvlmhrodgq'
 
 server = smtplib.SMTP('smtp.gmail.com', 587)  
 server.ehlo()
