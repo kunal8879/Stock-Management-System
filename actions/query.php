@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-// echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/display_lab.php?lab_no=$lab_no'>";
+echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/display_lab.php?lab_no=$lab_no'>";
 
 
 ?>
