@@ -88,6 +88,9 @@ require_once 'include/header.php'
         $sql2 = "SELECT * FROM `item` INNER JOIN `lab` INNER JOIN `supplier` ON `item`.lab_id = `lab`.lab_id AND `item`.supplier_id = `supplier`.supplier_id";
         // $sql2 = "SELECT * FROM item";
         $sql_run2 = mysqli_query($conn, $sql2);
+        $x = 123;
+
+        echo "pc_$x";
 
         $i = 1;
 

@@ -11,333 +11,201 @@ if ($srole == null) {
 
 $roomno = $_GET['lab_no'];
 
-$query = "SELECT * from lab WHERE lab_no='$roomno'";
-$data = mysqli_query($conn, $query);
-$result = mysqli_fetch_assoc($data);
+$sql1 = "SELECT * FROM lab WHERE lab_no='$roomno'";
+$sql_run1 = mysqli_query($conn, $sql1);
+$result = mysqli_fetch_assoc($sql_run1);
 $pcquantity = $result['pcquantity'];
 
 $_SESSION['lab_no'] = $roomno;
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://kit.fontawesome.com/a70a238af9.js' crossorigin='anonymous'></script>
-    <title>Lab Info Display</title>
-    <style>
-        .roomno1 {
-            font-size: 300%;
-            width: 30%;
-            text-align: center;
-            border: 2px outset #000000;
-            background-color: #00b3aa;
-            margin-left: 20px;
-        }
-
-        .timetable {
-            font-size: 300%;
-            width: 30%;
-            text-align: center;
-            border: 2px outset #000000;
-            background-color: #00b3aa;
-            margin-left: 750px;
-            margin-top: -675px;
-        }
-
-        .icon_style {
-            text-align: center;
-            position: center;
-            left: -200px;
-
-            height: auto;
-            width: 460px;
-
-            margin: 80px 500px 80px -33px;
-            border: 2px outset #000000;
-        }
-
-        .icon_button {
-            width: 50px;
-            padding-top: 10px;
-            margin: 10px;
-            background-color: white;
-            border: none;
-        }
-
-        .draganddrop {
-            padding-left: 300px;
-            border: 10px;
-        }
-
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {
-                padding-top: 15px;
-            }
-
-            .sidenav a {
-                font-size: 18px;
-            }
-        }
-
-        <?php for ($i = 0; $i <= $pcquantity; $i++) {
-            echo "<style>
-#pcicon$i {
-            width: 30px;
-            padding-top: 10px;
-            padding-right: 20px;
-            margin: 10px;
-        }
-    </style>
-    ";
-        }
-
-
-        // for icon color change
-        $query2 = "SELECT `pc_id` from pc_details WHERE lab_no='$roomno' AND pc_condition=0";
-        $data2 = mysqli_query($conn, $query2);
-        $rows = mysqli_num_rows($data2);
-        for ($a = 1; $a <= $rows; $a++) {
-            $result2 = mysqli_fetch_assoc($data2);
-            $id = $result['pc_id'];
-            echo "<style>
-        
-            #pcicon$id{
-            color: #ff0000;
-        }
-        </style>";
-        } ?>
-    </style>
-    <!-- <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css"> -->
-
-</head>
-
-<body>
-
-    <div style=" margin: 90px;">
+<div class="split left">
+    <div class="centered">
+        <h2 class="roomno">Lab No:- <?= $roomno ?></h2>
 
         <?php
+        $sql2 = "SELECT * FROM `pc_lab$roomno`";
+        $sql_run2 = mysqli_query($conn, $sql2);
+        $result = mysqli_fetch_assoc($sql_run2);
+        $pc_details = $result['pc_details'];
+        $softwares_installed = $result['pc_softwares'];
 
+        $i = 1;
 
+        if (mysqli_num_rows($sql_run2) > 0) {
+            echo "<div class='icon_style'>";
+            foreach ($sql_run2 as $pc) {
 
-        echo "<div class='roomno1'>
-    Lab No: $roomno
-    </div>";
+                if ($pc_details == null) {
+                    $pc_details = "No Registered data";
+                }
+                if ($softwares_installed == null) {
+                    $softwares_installed = "No Softwares Installation Details";
+                }
+                if ($pc['pc_condition'] == "Working") {
+                    $condition = "Working";
         ?>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal<?php echo $pc['pc_id'] ?>" style="margin: 5px;">
+                        <i id='pcicon<?php echo $pc['pc_id']; ?>' class='fa-solid fa-desktop fa-display fa-2x'></i>
+                    </button>
 
-
-        <?php
-
-        echo "<div class='icon_style'>";
-        for ($i = 1; $i <= $pcquantity; $i++) {
-        ?>
-
-            <?php
-            $query = "SELECT * FROM `pc_details` WHERE `pc_id`='$i' AND `lab_no`='$roomno'";
-            $data = mysqli_query($conn, $query);
-            $result = mysqli_fetch_assoc($data);
-            $pc_name = $result['pc_name'];
-            $details = $result['details'];
-            $pc_condition = $result['pc_condition'];
-            if ($pc_name == null) {
-                $pc_name = "No Registered data";
-            }
-            if ($details == null) {
-                $details = "No Registered data";
-            }
-            if ($pc_condition == 1) {
-                $condition = "Working";
-            ?>
-
-
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal<?php echo $i; ?>" style="margin: 5px;"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x'></i></a></button>
-
-                <!-- add item model -->
-                <div class="modal fade" id="displayPcDetailsModal<?php echo $i; ?>" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Pc Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="#" method="POST">
-                                    <div class="mb-3">
-                                        <label class="form-label">Lab No:</label>
-                                        <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">PC ID:</label>
-                                        <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="<?php echo $i ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc Name:</label>
-                                        <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="<?php echo $pc_name; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc Details:</label>
-                                        <input type="text" class="form-control" id="details" name="details" placeholder="<?php echo $details; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc Condition:</label>
-                                        <input type="text" class="form-control" id="condition" name="condition" placeholder="<?php echo $condition; ?>" readonly>
-                                    </div>
-
-                                    <?php if ($srole == 'Admin' || $srole == 'Faculty') {  ?>
-
+                    <!-- PC MODAL -->
+                    <div class="modal fade" id="displayPcDetailsModal<?php echo $pc['pc_id']; ?>" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Pc Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="edit_pc_details" method="POST">
                                         <div class="mb-3">
-                                            <label class="form-label">Query:</label>
-                                            <input type="text" class="form-control" id="condition" name="msg" placeholder="Enter if any problem">
+                                            <label class="form-label">Lab No:</label>
+                                            <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $pc['lab_no']; ?>" readonly>
                                         </div>
-
                                         <div class="mb-3">
-                                            <label class="form-label" for="psw"><b>Pc Condition</b></label>
-                                            <label class="container">Working
-                                                <input type="radio" name="pc_condition" value="1" required />
-                                            </label>
-                                            <label class="container">Not Working
-                                                <input type="radio" name="pc_condition" value="0" required />
-
-                                            </label>
+                                            <label class="form-label">PC ID:</label>
+                                            <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="<?php echo $pc['pc_id']; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pc Name:</label>
+                                            <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="<?php echo $pc['pc_name']; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pc Details:</label>
+                                            <input type="text" class="form-control" id="details" name="details" placeholder="<?php echo $pc_details; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Software:</label>
+                                            <input type="text" class="form-control" id="softwares_installed" name="softwares_installed" placeholder="<?php echo $softwares_installed; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pc Condition:</label>
+                                            <input type="text" class="form-control" id="condition" name="condition" placeholder="<?php echo $condition; ?>" readonly>
                                         </div>
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
-                                            <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
-                                        </div>
-                                    <?php  }  ?>
-                                </form>
+                                        <?php if ($srole == 'Admin' || $srole == 'Faculty') {  ?>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Query:</label>
+                                                <input type="text" class="form-control" id="condition" name="msg" placeholder="Enter if any problem">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label" for="psw"><b>Pc Condition</b></label>
+                                                <label class="container">Working
+                                                    <input type="radio" name="pc_condition" value="1" required />
+                                                </label>
+                                                <label class="container">Not Working
+                                                    <input type="radio" name="pc_condition" value="0" required />
+
+                                                </label>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
+                                                <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
+                                            </div>
+                                        <?php  }  ?>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php
-            } elseif ($pc_condition == 0) {
-                $condition = "Not Working";
-            ?>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal<?php echo $i; ?>" style="margin: 5px;"><i id='pcicon<?php echo $i; ?>' class='fa-solid fa-desktop fa-display fa-2x '></i></a></button>
+                <?php
+                } else {
+                    $condition = "Not Working";
+                ?>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#displayPcDetailsModal<?php echo $pc['pc_id'] ?>" style="margin: 5px;">
+                        <i id='pcicon<?php echo $pc['pc_id']; ?>' class='fa-solid fa-desktop fa-display fa-2x'></i>
+                    </button>
 
-                <!-- add item model -->
-                <div class="modal fade" id="displayPcDetailsModal<?php echo $i; ?>" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Pc Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="./query.php" method="POST">
-                                    <div class="mb-3">
-                                        <label class="form-label">Lab No:</label>
-                                        <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $roomno; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc ID:</label>
-                                        <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="<?php echo $i; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc Name:</label>
-                                        <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="<?php echo $pc_name; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc Details:</label>
-                                        <input type="text" class="form-control" id="details" name="details" placeholder="<?php echo $details; ?>" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Pc Condition:</label>
-                                        <input type="text" class="form-control" id="condition" name="condition" placeholder="<?php echo $condition; ?>" readonly>
-                                    </div>
-
-                                    <?php if ($srole == 'Admin' || $srole == 'Faculty') {  ?>
-
+                    <!-- PC MODAL -->
+                    <div class="modal fade" id="displayPcDetailsModal<?php echo $pc['pc_id']; ?>" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel" style="margin-left: auto;">Pc Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="edit_pc_details" method="POST">
                                         <div class="mb-3">
-                                            <label class="form-label">Query:</label>
-                                            <input type="text" class="form-control" id="condition" name="msg" placeholder="Enter if any problem" required>
+                                            <label class="form-label">Lab No:</label>
+                                            <input type="text" class="form-control" id="lab_no" name="lab_no" placeholder="<?php echo $pc['lab_no']; ?>" readonly>
                                         </div>
-
                                         <div class="mb-3">
-                                            <label class="form-label" for="psw"><b>Pc condition</b></label>
-                                            <label class="container">Working
-                                                <input type="radio" name="pc_condition" value="1" required />
-                                            </label>
-                                            <label class="container">Not Working
-                                                <input type="radio" name="pc_condition" value="0" required />
-
-                                            </label>
+                                            <label class="form-label">PC ID:</label>
+                                            <input type="text" class="form-control" id="pc_id" name="pc_id" placeholder="<?php echo $pc['pc_id']; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pc Name:</label>
+                                            <input type="text" class="form-control" id="pc_name" name="pc_name" placeholder="<?php echo $pc['pc_name']; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pc Details:</label>
+                                            <input type="text" class="form-control" id="details" name="details" placeholder="<?php echo $pc_details; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Softwares:</label>
+                                            <input type="text" class="form-control" id="softwares_installed" name="softwares_installed" placeholder="<?php echo $softwares_installed; ?>" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Pc Condition:</label>
+                                            <input type="text" class="form-control" id="condition" name="condition" placeholder="<?php echo $condition; ?>" readonly>
                                         </div>
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
-                                            <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
-                                        </div>
-                                    <?php  }  ?>
-                                </form>
+                                        <?php if ($srole == 'Admin' || $srole == 'Faculty') {  ?>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Query:</label>
+                                                <input type="text" class="form-control" id="condition" name="msg" placeholder="Enter if any problem">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label" for="psw"><b>Pc Condition</b></label>
+                                                <label class="container">Working
+                                                    <input type="radio" name="pc_condition" value="1" required />
+                                                </label>
+                                                <label class="container">Not Working
+                                                    <input type="radio" name="pc_condition" value="0" required />
+
+                                                </label>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Close</button>
+                                                <button type="submit" name="add_item" class="btn btn-primary" style="background-color: #00b3aa;">Submit</button>
+                                            </div>
+                                        <?php  }  ?>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php
-            }
-            ?>
-
+                <?php
+                }
+                ?>
 
         <?php
-
-            if ($i % 5 == 0) {
-                echo "<br>";
+                if ($i % 5 == 0) {
+                    echo "<br>";
+                }
+                $i++;
             }
         }
         echo "</div>";
 
         ?>
+    </div>
+</div>
 
 
-        <div class='timetable'>
-            Timetable
-        </div>
+<div class="split right">
+    <div class="centered">
+        <h2 class="timetable">Timetable</h2>
+
 
 
         <?php
@@ -346,22 +214,25 @@ $_SESSION['lab_no'] = $roomno;
 
 
             echo "<main>
-            <div class='draganddrop'>";
+                    <div class='draganddrop'>";
 
             include('timetable.php');
 
             echo  "</div>
-        </main>";
+                </main>";
         } else {
             echo "<main>
-            <div class='draganddrop'>";
+                    <div class='draganddrop'>";
 
             include('view.php');
 
             echo  "</div>
-        </main>";
+                </main>";
         }
         ?>
 
+    </div>
+</div>
+</body>
 
 </html>

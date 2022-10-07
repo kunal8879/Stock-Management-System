@@ -14,6 +14,7 @@ $lab_no = $_SESSION['lab_no'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/display_lab.css">
     <script src="https://kit.fontawesome.com/a70a238af9.js" crossorigin="anonymous"></script>
 </head>
 
@@ -82,8 +83,7 @@ $lab_no = $_SESSION['lab_no'];
                             </ul>
                         </li>
                 </nav>
-            <?php }
-             elseif ($srole == 'Faculty') { ?>
+            <?php } elseif ($srole == 'Faculty') { ?>
                 <nav class="navnavnav">
                     <ul>
                         <li><a href="../lab_faculty.php">Home</a></li>
