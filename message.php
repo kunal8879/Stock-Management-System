@@ -22,15 +22,4 @@ function message()
 					";
         unset($_SESSION['success']);
     }
-
-
-    //display on info
-    if (isset($_SESSION['info'])) {
-        echo "<div class='alert alert-info text-center alert-dismissible'>
-						<button class='close'>&times;</button>
-						" . ucwords($_SESSION['info']) . "
-					</div>
-					";
-        unset($_SESSION['success']);
-    }
 }
