@@ -63,6 +63,7 @@ $srole = $_SESSION['user'];
     </div>
 
     <main>
+        <h3 class="text-muted text-center" style="margin-bottom: 10px;">Faculty Details</h3>
         <table class="content-table" style="border-collapse: separate; float:centre;">
             <thead>
                 <tr>
@@ -178,13 +179,11 @@ $srole = $_SESSION['user'];
                         </div>
                     </div>
                 </div>
-                </td>
-                </tr>
+            </td>
+            </tr>
 
-            
+
         </table>
-        <!-- <button class="button" role="button" style="float: right;  margin: 20px 120px 30px 100px;"><a
-                href="faculty_details.php">Add New Faculty</button> -->
     </main>
     </div>
 </body>

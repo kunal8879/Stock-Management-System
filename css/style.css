@@ -194,7 +194,36 @@ header .navnavnav ul li:hover > ul {
 
 .img_container {
   position: relative;
-  padding-top: 300px;
+  padding-top: 50px;
   padding-bottom: 50px;
-  border: 2px outset #000000;
+  border: 0px;
 }
+#image
+{
+  position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 2px outset #000000;
+}
+
+.change-timetable
+{
+  position: relative;
+
+  padding-left: 100px;
+  width: 750px;
+  left: 500px;
+
+  
+}
+
+.scroll
+{
+  scroll-behavior: smooth;
+  text-decoration: none;
+  color: black;
+}
+
+/* .back_icon{
+  left: 30px;
+} */

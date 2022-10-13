@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<div class='form'>
               <h3>Data Entered successfully.</h3><br/>
               </div>";
-        echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/display_details.php'>";
+        echo "<meta http-equiv='refresh' content='0; URL=http://localhost/stock-Management-System/display_details.php'>";
     } else {
         echo "<div class='form'>
               <h3>ERROR</h3><br/>

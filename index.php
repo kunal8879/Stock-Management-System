@@ -13,8 +13,7 @@ require_once 'include/header_student.php';
 
 <!-- search for lab -->
 <div class="mb-3">
-    <input type="text" class="form-control lab-search" id="search" onkeyup="tableSearch()"
-        placeholder="Search for lab.." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
+    <input type="text" class="form-control lab-search" id="search" onkeyup="tableSearch()" placeholder="Search for lab.." style="width: 15%; height: 25px; float: right; margin: -38px 110px 5px 3px;">
     <label class="form-label search-label" style="float: right; margin: -38px 348px 5px 1px;">Search: </label>
 </div>
 
@@ -42,24 +41,24 @@ require_once 'include/header_student.php';
         if (mysqli_num_rows($sql_run1) > 0) {
             foreach ($sql_run1 as $lab) {
         ?>
-        <tr>
-            <!--showing lab details -->
-            <td><?= $i ?></td>
-            <td><?php echo "<a href='display_lab_student.php?lab_no=$lab[lab_no]'>"; ?> <?= $lab['lab_no'] ?></td>
-            <td><?= $lab['lab_detail'] ?></td>
-            <td><?= $lab['lab_admin'] ?></td>
+                <tr>
+                    <!--showing lab details -->
+                    <td><?= $i ?></td>
+                    <td><?php echo "<a href='display_lab_student.php?lab_no=$lab[lab_no]'>"; ?> <?= $lab['lab_no'] ?></td>
+                    <td><?= $lab['lab_detail'] ?></td>
+                    <td><?php echo "<a href='card.php?uname=$lab[lab_admin]' style='text-decoration=none; color=black;'>"; ?><?= $lab['lab_admin'] ?></td>
 
 
-        </tr>
-        <?php
+                </tr>
+            <?php
                 $i++;
             }
         } else {
             ?>
-        <!-- if there is no data in the database -->
-        <tr>
-            <td colspan="8" style="text-align: center; font-size: 20px;">NO LAB FOUND!!!!</td>
-        </tr>
+            <!-- if there is no data in the database -->
+            <tr>
+                <td colspan="8" style="text-align: center; font-size: 20px;">NO LAB FOUND!!!!</td>
+            </tr>
         <?php
         }
         ?>

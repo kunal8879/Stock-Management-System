@@ -7,6 +7,8 @@ body {
     text-align: center;
     border: 2px outset #000000;
     background-color: #00b3aa;
+
+    margin-left: 30%;
 }
 
 .timetable {
@@ -15,6 +17,11 @@ body {
     text-align: center;
     border: 2px outset #000000;
     background-color: #00b3aa;
+
+    margin-left: 30%;
+    margin-top: 20px;
+
+    cursor: pointer;
 }
 
 .icon_style {
@@ -24,6 +31,8 @@ body {
     width: 400px;
     margin-top: 20px;
     border: 2px outset #000000;
+
+    margin-left: 36%;
 }
 
 .icon_button {
@@ -72,6 +81,41 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
+.try01 {
+
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+    height: auto;
+    margin-top: 200px;
+
+
+
+}
+
+.try02 {
+    position: relative;
+    top: 120px;
+    padding-top: 10px;
+    border-radius: 15px;
+    height: auto;
+    margin-top: 10px;
+    width: 200px;
+
+}
+
+.img_container {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    margin-left: 25%;
+    
+}
+.naya
+{
+    margin-left: 42%;
+}
+
 
 @media screen and (max-height: 450px) {
     .sidenav {

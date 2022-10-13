@@ -26,43 +26,13 @@ $lab_no = $_SESSION['lab_no'];
     <!-- navigation bar -->
     <div style="margin: 90px;">
         <header>
-            <?php
-            if ($srole == null) {
+            
 
-                echo "<img src='../images/logo3.png' alt='Logo' class='site-logo'>";
-            } else {
-            ?>
-
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-                    <?php echo "<a href='add_pc_details_clone.php?lab_no=$lab_no'>Add Pc Details</a>
-                    <a href='#'>Upload TimeTable</a>"; ?>
-
-
-                    <script>
-                        function openNav() {
-                            document.getElementById("mySidenav").style.width = "200px";
-                        }
-
-                        function closeNav() {
-                            document.getElementById("mySidenav").style.width = "0";
-                        }
-                    </script>
-
-
-                </div>
-
-            <?php
-            }
-            ?>
-
-            <?php
-            if ($srole == 'Admin' || $srole == 'Faculty') {
-                echo "<span style='font-size:30px;cursor:pointer;margin-left:20px;' onclick='openNav()'>&#9776;</span>";
-            }
-            ?>
-
+                <img src='../images/logo3.png' alt='Logo' class='site-logo'>
+            
+            <!-- <div class="back_icon">
+                <i onclick="history.back()" class="fa-solid fa-arrow-left fa-2xl"></i>
+            </div> -->
 
             <?php if ($srole == 'Admin') { ?>
                 <nav class="navnavnav">

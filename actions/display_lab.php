@@ -73,11 +73,11 @@ if (mysqli_num_rows($sql_run2) > 0) {
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Pc Details:</label>
-                                    <input type="text" class="form-control" id="pc_details" name="pc_details" value="<?php echo $pc_details; ?>">
+                                    <input type="text" class="form-control" id="pc_details" name="pc_details" value="<?php echo $pc['pc_details']; ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Software:</label>
-                                    <input type="text" class="form-control" id="pc_softwares" name="pc_softwares" value="<?php echo $pc_softwares; ?>">
+                                    <input type="text" class="form-control" id="pc_softwares" name="pc_softwares" value="<?php echo $pc['pc_softwares']; ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Query:</label>
@@ -133,15 +133,15 @@ if (mysqli_num_rows($sql_run2) > 0) {
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Pc Details:</label>
-                                    <input type="text" class="form-control" id="pc_details" name="pc_details" value="<?php echo $pc_details; ?>">
+                                    <input type="text" class="form-control" id="pc_details" name="pc_details" value="<?php echo $pc['pc_details']; ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Software:</label>
-                                    <input type="text" class="form-control" id="pc_softwares" name="pc_softwares" value="<?php echo $pc_softwares; ?>">
+                                    <input type="text" class="form-control" id="pc_softwares" name="pc_softwares" value="<?php echo $pc['pc_softwares']; ?>">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Query:</label>
-                                    <input type="text" class="form-control" id="pc_query" name="pc_query" value="Enter Your Query">
+                                    <input type="text" class="form-control" id="pc_query" name="pc_query" placeholder="Enter Your Query">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="psw"><b>Pc Condition:</b></label>
@@ -163,7 +163,7 @@ if (mysqli_num_rows($sql_run2) > 0) {
             </div>
 
 
-            
+
         <?php
         }
         ?>
@@ -179,40 +179,21 @@ echo "</div>";
 
 ?>
 
-
-<h2 class="timetable">Timetable</h2>
-
-
-
-<?php
-// if ($srole == 'Admin' || $srole == 'Faculty') {
+<a class="scroll" href="#image">
+    <a class="scroll" href="#image">
+        <h2 class="timetable">Timetable</h2>
+    </a>
 
 
 
-//     echo "<main>
-//                     <div class='draganddrop'>";
 
-//     include('timetable.php');
-
-//     echo  "</div>
-//                 </main>";
-// } else {
-//     echo "<main>
-//                     <div class='draganddrop'>";
-
-//     include('view.php');
-
-//     echo  "</div>
-//                 </main>";
-// }
-?>
-<?php
-        $query = "SELECT `timetable` from lab where lab_no=$roomno";
-        $data = mysqli_query($conn, $query);
-        $result = mysqli_fetch_assoc($data);
-        $detail = $result['timetable'];
-        if ($detail == null) {
-        ?>
+    <?php
+    $query = "SELECT `timetable` from lab where lab_no=$roomno";
+    $data = mysqli_query($conn, $query);
+    $result = mysqli_fetch_assoc($data);
+    $detail = $result['timetable'];
+    if ($detail == null) {
+    ?><div class="naya">
             <h3>Upload Timetable:</h3>
             <div class="drop-zone">
                 <form action=./upload.php method="post" enctype="multipart/form-data">
@@ -221,12 +202,13 @@ echo "</div>";
                     <input class="try01" type="submit" name="submit" value="Upload">
                 </form>
             </div>
-        <?php } else {
-            echo "<div class='img_container'>";
-            echo '<img src="data:image/jpeg;base64,' . base64_encode($result['timetable']) . '"/>';
-            echo "</div>";
-        ?>
-
+        </div>
+    <?php } else {
+        echo "<div class='img_container'>";
+        echo '<img id="image" src="data:image/jpeg;base64,' . base64_encode($result['timetable']) . '"/>';
+        echo "</div>";
+    ?>
+        <div class="change-timetable">
             <h4>Change Timetable:</h4>
             <div class="">
                 <form action=./upload.php method="post" enctype="multipart/form-data">
@@ -235,9 +217,10 @@ echo "</div>";
                     <input class="" type="submit" name="submit" value="Upload">
                 </form>
             </div>
+        </div>
 
-        <?php }  ?>
+    <?php }  ?>
 
-</body>
+    </body>
 
-</html>
+    </html>

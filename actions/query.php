@@ -4,32 +4,49 @@ require_once '../db_connect.php';
 $lab_no = $_SESSION['lab_no'];
 $uname = $_SESSION['username'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$pc_id=$_GET['pc_id'];
+$pc_query=$_GET['pc_query'];
+$pc_name = $_GET['pc_name'];
 
 
-    $pc_condition = $_POST['pc_condition'];
-    $msg = $_POST['msg'];
-
-    $sql = "UPDATE `pc_details` SET pc_condition= '$pc_condition' WHERE lab_no='$lab_no'";
-
-    $sql_run = mysqli_query($conn, $sql);
-
-    if ($sql_run == true) {
-        $_SESSION['success'] = 'Item Added Successfully.'; 
-
-       $result =shell_exec("python query.py $lab_no $msg $uname");
-
-    //    echo $result;
-
-        
-    }
-} else {
-    $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
-}
+    use PHPMailer\PHPMailer\PHPMailer;
 
 
+        $email = 'gammingworld18@gmail.com';
+        $subject = 'Problem in Lab No. '.$lab_no;
+        $body = $pc_query.' in Pc No. '.$pc_id.
+        '<br>Pc ID:'.$pc_name;
 
-echo "<meta http-equiv='refresh' content='0; URL=http://localhost/Stock-Management-System-1/actions/display_lab.php?lab_no=$lab_no'>";
+        require_once "PHPMailer/PHPMailer.php";
+        require_once "PHPMailer/SMTP.php";
+        require_once "PHPMailer/Exception.php";
 
+        $mail = new PHPMailer();
+
+        //SMTP Settings
+        $mail->isSMTP();
+        $mail->Host = "smtp.gmail.com";
+        $mail->SMTPAuth = true;
+        $mail->Username = "usertrial40@gmail.com";
+        $mail->Password = 'iwojbyhntzextloo'; 
+        $mail->Port = 465;
+        $mail->SMTPSecure = "ssl";
+
+        //Email Settings
+        $mail->isHTML(true);
+        $mail->setFrom($email, $uname);
+        $mail->addAddress("usertrial40@gmail.com"); 
+        $mail->Subject = ("From:$uname ($subject)");
+        $mail->Body = $body;
+
+        if ($mail->send()) {
+            
+            header("Location: http://localhost/stock-Management-System/actions/display_lab.php?lab_no=$lab_no");
+        } else {
+            $status = "failed";
+            $response = "Something is wrong: <br><br>" . $mail->ErrorInfo;
+        }
+
+        exit(json_encode(array("status" => $status, "response" => $response)));
 
 ?>

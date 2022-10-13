@@ -51,11 +51,12 @@ error_reporting(0);
 
 else{
     $uname=$_GET['uname'];
-    $srole=$_GET['srole'];
-    $query="SELECT `lab_no` FROM `lab` WHERE `lab_admin`='$uname'";
+    // $srole=$_GET['srole'];
+    $query="SELECT `lab_no`,`role` FROM `lab` WHERE `lab_admin`='$uname'";
     $data=mysqli_query($conn,$query);
     $result=mysqli_fetch_assoc($data);
     $lab_no=$result['lab_no'];
+    $srole=$result['role'];
     if($srole==0){
         $srole1='Faculty';
     }else{
@@ -71,7 +72,7 @@ else{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/profile_style.css">
+    <link rel="stylesheet" href="css/card_css.css">
     <title>ID Card</title>
     <!--     
     So lets start -->
@@ -82,7 +83,7 @@ else{
         <div class="padding">
             <div class="font">
                 <div class="top">
-                    <img src="image/download.png">
+                    <img src="images/download.png">
                 </div>
                 <div class="bottom">
                     <p><?php echo $uname;?></p>
