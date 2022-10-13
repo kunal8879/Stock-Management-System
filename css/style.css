@@ -117,10 +117,9 @@ header .navnavnav ul li:hover > ul {
   border-bottom: 2px solid #00b3aa;
 }
 
-<<<<<<< HEAD
 .sort_table:hover{
   cursor: pointer;
-=======
+}
 
 
 .drop-zone {
@@ -201,5 +200,4 @@ header .navnavnav ul li:hover > ul {
   padding-top: 300px;
   padding-bottom: 50px;
   border: 2px outset #000000;
->>>>>>> 10302e22104b280cf68e6d7532147608e1dab71c
 }
