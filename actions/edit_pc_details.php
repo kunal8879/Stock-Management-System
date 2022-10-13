@@ -14,7 +14,7 @@ if (isset($_POST['edit_pc_details'])) {
     $pc_condition = mysqli_real_escape_string($conn, $_POST['pc_condition']);
     $pc_query = mysqli_real_escape_string($conn, $_POST['pc_query']);
 
-    $sql1 = "UPDATE `stock4`.`pc_lab$lab_no` SET `pc_details`='$pc_details', `pc_softwares`='$pc_softwares', `pc_query`='$pc_query', `pc_condition` = '$pc_condition' WHERE `pc_id` = '$pc_id';";
+    $sql1 = "UPDATE `stock`.`pc_lab$lab_no` SET `pc_details`='$pc_details', `pc_softwares`='$pc_softwares', `pc_query`='$pc_query', `pc_condition` = '$pc_condition' WHERE `pc_id` = '$pc_id';";
     $sql_run1 = mysqli_query($conn, $sql1);
 
     // echo $pc_query;
