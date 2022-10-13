@@ -193,7 +193,7 @@ echo "</div>";
     $result = mysqli_fetch_assoc($data);
     $detail = $result['timetable'];
     if ($detail == null) {
-    ?><div class="naya">
+    ?><div class="naya timetable">
             <h3>Upload Timetable:</h3>
             <div class="drop-zone">
                 <form action=./upload.php method="post" enctype="multipart/form-data">
@@ -208,7 +208,7 @@ echo "</div>";
         echo '<img id="image" src="data:image/jpeg;base64,' . base64_encode($result['timetable']) . '"/>';
         echo "</div>";
     ?>
-        <div class="change-timetable">
+        <div class="change-timetable tt">
             <h4>Change Timetable:</h4>
             <div class="">
                 <form action=./upload.php method="post" enctype="multipart/form-data">
@@ -219,8 +219,9 @@ echo "</div>";
             </div>
         </div>
 
-    <?php }  ?>
-
+    <?php }  
+    require_once '../include/footer.php';
+    ?>
     </body>
 
     </html>
