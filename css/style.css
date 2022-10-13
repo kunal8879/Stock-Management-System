@@ -116,3 +116,7 @@ header .navnavnav ul li:hover > ul {
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid #00b3aa;
 }
+
+.sort_table:hover{
+  cursor: pointer;
+}

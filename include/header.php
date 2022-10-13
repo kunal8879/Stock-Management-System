@@ -19,7 +19,7 @@ $username = $_SESSION['username'];
 <body>
     <script src="css/bootstrap.js"></script>
     <script src="include/search.js"></script>
-    <script src="include/sortTest.js"></script>
+    <script defer src="include/sort.js"></script>
 
     <!-- navigation bar -->
     <div style="margin: 90px;">
