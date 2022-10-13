@@ -65,7 +65,7 @@ require_once 'include/header.php'
             <th>DETAILS</th>
             <th>LAB ADMIN</th>
             <th>TOTAL PC</th>
-            <th>ADDED ON</th>
+            <th onclick="sortTable()">ADDED ON</th>
             <th>ACTION</th>
         </tr>
     </thead>
