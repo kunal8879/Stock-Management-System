@@ -6,6 +6,7 @@ function sortTable() {
     while (sorting) {
         sorting = false;
         rows = table.rows;
+        console.log(rows);
         for (i = 1; i < rows.length - 1; i++) {
             sort = false;
             x = rows[i].getElementsByTagName("td")[6];

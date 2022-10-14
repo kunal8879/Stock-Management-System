@@ -1,8 +1,6 @@
 <?php
 require_once 'db_connect.php';
 require_once 'include/header.php'
-
-
 ?>
 
 <!-- add lab button-->
@@ -65,7 +63,7 @@ require_once 'include/header.php'
             <th>DETAILS</th>
             <th>LAB ADMIN</th>
             <th>TOTAL PC</th>
-            <th onclick="sortTable()">ADDED ON</th>
+            <th>ADDED ON</th>
             <th>ACTION</th>
         </tr>
     </thead>
@@ -84,8 +82,7 @@ require_once 'include/header.php'
                 <tr>
                     <!--showing lab details -->
                     <td><?= $i ?></td>
-                    <td><?php echo "<a href='./actions/display_lab.php?lab_no=$lab[lab_no]'>"; ?>
-                        <?= $lab['lab_no'] ?></td>
+                    <td><?php echo "<a href='./actions/display_lab.php?lab_no=$lab[lab_no]'>"; ?><?= $lab['lab_no'] ?></td>
                     <td><?= $lab['lab_detail'] ?></td>
                     <td><?= $lab['lab_admin'] ?></td>
                     <td><?= $lab['pcquantity'] ?></td>
