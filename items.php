@@ -71,13 +71,13 @@ require_once 'include/header.php'
 <table class="content-table" id="tableData" style="border-collapse: separate;">
     <thead>
         <tr>
-            <th>ITEM</th>
             <th>SR.</th>
+            <th>ITEM</th>
             <th>CATEGORY</th>
             <th>DETAILS</th>
             <th>SUPPLIER</th>
             <th>LAB</th>
-            <th onclick="sortTable()" class="sort_table">SUPPLIED AT</th>
+            <th onclick="sortTable()" >SUPPLIED AT</th>
             <th>ACTION</th>
         </tr>
     </thead>
@@ -85,7 +85,7 @@ require_once 'include/header.php'
 
         <!-- fetching item details from database -->
         <?php
-        $sql2 = "SELECT * FROM `item` INNER JOIN `lab` INNER JOIN `supplier` ON `item`.lab_id = `lab`.lab_id AND `item`.supplier_id = `supplier`.supplier_id";
+        $sql2 = "SELECT * FROM `stock`.`item` INNER JOIN `lab` INNER JOIN `supplier` ON `item`.lab_id = `lab`.lab_id AND `item`.supplier_id = `supplier`.supplier_id";
         // $sql2 = "SELECT * FROM item";
         $sql_run2 = mysqli_query($conn, $sql2);
 
@@ -125,15 +125,15 @@ require_once 'include/header.php'
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>">
-                                                <label class="form-label">ITEM:</label>
+                                                <label class="form-label">Item:</label>
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="item_cat" name="item_cat" value="<?php echo $item['item_cat']; ?>">
-                                                <label class="form-label">CATEGORY:</label>
+                                                <label class="form-label">Category:</label>
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="item_detail" name="item_detail" value="<?php echo $item['item_detail']; ?>">
-                                                <label class="form-label">DETAILS:</label>
+                                                <label class="form-label">Details:</label>
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="bill_no" name="bill_no" value="<?php echo $item['bill_no']; ?>">
@@ -141,7 +141,7 @@ require_once 'include/header.php'
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="supplied_at" name="supplied_at" value="<?php echo $item['supplied_at']; ?>" readonly>
-                                                <label class="form-label">SUPPLIED ON:</label>
+                                                <label class="form-label">Supplied On:</label>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d9d9d9;">Cancel</button>

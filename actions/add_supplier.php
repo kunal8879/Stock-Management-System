@@ -20,4 +20,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
 }
 
-header('Location: ../suppliers.php');
+header('Location: ../supplier.php');

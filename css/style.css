@@ -206,11 +206,9 @@ header .navnavnav ul li:hover > ul {
 .change-timetable
 {
   position: relative;
-
-  padding-left: 100px;
+  text-align: center;
   width: 750px;
-  left: 500px;
-
+  margin-bottom: 20px;
   
 }
 

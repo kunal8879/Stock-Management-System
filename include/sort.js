@@ -15,10 +15,10 @@ function sortTable() {
                 sort = true;
                 break;
             }
+        }
             if (sort) {
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 sorting = true;
-            }
         }
     }
 }

@@ -48,7 +48,7 @@ $lab_no = $_SESSION['lab_no'];
                         <li><a href="../supplier.php">Supplier</a></li>
                         <li><a href="../card.php"><i class="fa-solid fa-user"></i><?php echo " " . $srole; ?></a>
                             <ul style="padding: 0; margin: 0; text-align: center;">
-                                <li><a href="../manage_faculty_details.php" style="padding: 0px;">Manage Faculty</a></li>
+                                <li><a href="../display_details.php" style="padding: 0px;">Manage Faculty</a></li>
                                 <li><a href="../logout.php">Logout</a></li>
                             </ul>
                         </li>

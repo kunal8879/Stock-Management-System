@@ -208,7 +208,7 @@ echo "</div>";
         echo '<img id="image" src="data:image/jpeg;base64,' . base64_encode($result['timetable']) . '"/>';
         echo "</div>";
     ?>
-        <div class="change-timetable">
+        <div class="new" style="text-align: center;">
             <h4>Change Timetable:</h4>
             <div class="">
                 <form action=./upload.php method="post" enctype="multipart/form-data">
@@ -219,8 +219,9 @@ echo "</div>";
             </div>
         </div>
 
-    <?php }  ?>
-
+    <?php }  
+    // require_once '../include/footer.php';
+    ?>
     </body>
 
     </html>

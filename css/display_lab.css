@@ -88,7 +88,7 @@ body {
     height: auto;
     margin-top: 200px;
 
-
+margin-left: 50px;
 
 }
 
@@ -99,6 +99,7 @@ body {
     border-radius: 15px;
     height: auto;
     margin-top: 10px;
+    margin-left: 20px;
     width: 200px;
 
 }
@@ -107,9 +108,8 @@ body {
     position: relative;
     padding-top: 50px;
     padding-bottom: 50px;
-
-    margin-left: 25%;
-    
+    padding-left: 150px;
+    margin-left: 150px;  
 }
 .naya
 {
@@ -126,3 +126,11 @@ body {
         font-size: 18px;
     }
 }
+
+.timetable{
+    margin-bottom: 10px;
+}
+
+/* .tt{
+    margin-bottom: 10px;
+} */
