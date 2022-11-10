@@ -219,7 +219,7 @@ echo "</div>";
             </div>
         </div>
 
-    <?php }  
+    <?php }
     // require_once '../include/footer.php';
     ?>
     </body>

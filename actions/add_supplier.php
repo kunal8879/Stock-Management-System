@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $supplier_add = $_POST['supplier_add'];
     $supplier_phone = $_POST['supplier_phone'];
 
-    $sql = "INSERT INTO `supplier`(`supplier_name`, `supplier_add`, `supplier_phone`, `added_on`) VALUES ('$supplier_name', '$supplier_add', '$supplier_phone', CURDATE() CURTIME())";
+    $sql = "INSERT INTO `supplier` (`supplier_name`, `supplier_add`, `supplier_phone`, `added_on`) VALUES ('$supplier_name', '$supplier_add', '$supplier_phone', CURDATE())";
 
     $sql_run = mysqli_query($conn, $sql);
 

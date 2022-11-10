@@ -77,7 +77,7 @@ require_once 'include/header.php'
             <th>DETAILS</th>
             <th>SUPPLIER</th>
             <th>LAB</th>
-            <th onclick="sortTable()" >SUPPLIED AT</th>
+            <th onclick="sortTable()">SUPPLIED AT</th>
             <th>ACTION</th>
         </tr>
     </thead>

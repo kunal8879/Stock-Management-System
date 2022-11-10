@@ -17,4 +17,4 @@ if (isset($_POST['delete_supplier'])) {
     $_SESSION['error'] = 'Something Went Wrong!! Please Try Again.';
 }
 
-header('Location: ../suppliers.php');
+header('Location: ../supplier.php');

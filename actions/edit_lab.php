@@ -15,7 +15,7 @@ if (isset($_POST['edit_lab'])) {
     $result = mysqli_fetch_assoc($sql_run1);
     $lab_no_old = $result['lab_no'];
 
-    $sql2 = "UPDATE `lab` SET `lab_no`='$lab_no_new',`lab_detail`='$lab_detail',`lab_admin`='$lab_admin', `pcquantity`='$pcquantity', `added_on`='$added_on' WHERE `lab_id` = '$lab_id';";
+    $sql2 = "UPDATE `lab` SET `lab_no`='$lab_no_new',`lab_detail`='$lab_detail',`lab_admin`='$lab_admin', `added_on`='$added_on' WHERE `lab_id` = '$lab_id';";
     $sql_run2 = mysqli_query($conn, $sql2);
 
     $sql3 = "ALTER TABLE `pc_lab$lab_no_old` RENAME TO `pc_lab$lab_no_new`";

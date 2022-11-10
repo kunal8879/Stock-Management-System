@@ -119,8 +119,7 @@ require_once 'include/header.php'
                                                 <label class="form-label">LAB ADMIN: </label>
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" id="pcquantity" name="pcquantity" value="<?php echo $lab['pcquantity']; ?>">
-                                                <label class="form-label">PC Quantity: </label>
+                                                <input type="hidden" class="form-control" id="pcquantity" name="pcquantity" value="<?php echo $lab['pcquantity']; ?>">
                                             </div>
                                             <div class="mb-3">
                                                 <input type="text" class="form-control" id="added_on" name="added_on" value="<?php echo $lab['added_on']; ?>">
