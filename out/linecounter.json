@@ -1,0 +1,461 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "c:\\xampp\\htdocs\\Stock-Management-System",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2022-10-14 09:38:46",
+            "filesum": 67,
+            "codesum": 9313,
+            "commentsum": 2974,
+            "blanksum": 1239,
+            "statistics": {
+                ".php": {
+                    "code": 6202,
+                    "comment": 2744,
+                    "blank": 1069
+                },
+                ".md": {
+                    "code": 7,
+                    "comment": 0,
+                    "blank": 1
+                },
+                ".css": {
+                    "code": 501,
+                    "comment": 20,
+                    "blank": 83
+                },
+                ".js": {
+                    "code": 2296,
+                    "comment": 7,
+                    "blank": 6
+                },
+                ".html": {
+                    "code": 31,
+                    "comment": 68,
+                    "blank": 5
+                },
+                ".map": {
+                    "code": 2,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".sql": {
+                    "code": 274,
+                    "comment": 135,
+                    "blank": 75
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 6,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "actions\\add_item.php"
+                },
+                {
+                    "blank": 8,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "actions\\add_lab.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "actions\\add_pc.php"
+                },
+                {
+                    "blank": 16,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "actions\\add_pc_details.php"
+                },
+                {
+                    "blank": 39,
+                    "code": 125,
+                    "comment": 0,
+                    "filename": "actions\\add_pc_details_clone.php"
+                },
+                {
+                    "blank": 6,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "actions\\add_supplier.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "actions\\allocate_item.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "actions\\delete_item.php"
+                },
+                {
+                    "blank": 6,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "actions\\delete_lab.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "actions\\delete_supplier.php"
+                },
+                {
+                    "blank": 27,
+                    "code": 197,
+                    "comment": 3,
+                    "filename": "actions\\display_lab.php"
+                },
+                {
+                    "blank": 21,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "actions\\display_pc_details.php"
+                },
+                {
+                    "blank": 6,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "actions\\edit_item.php"
+                },
+                {
+                    "blank": 9,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "actions\\edit_lab.php"
+                },
+                {
+                    "blank": 8,
+                    "code": 21,
+                    "comment": 18,
+                    "filename": "actions\\edit_pc_details.php"
+                },
+                {
+                    "blank": 6,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "actions\\edit_supplier.php"
+                },
+                {
+                    "blank": 13,
+                    "code": 40,
+                    "comment": 1,
+                    "filename": "actions\\login_user.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 1,
+                    "filename": "actions\\manage_faculty.php"
+                },
+                {
+                    "blank": 6,
+                    "code": 18,
+                    "comment": 2,
+                    "filename": "actions\\pc_details.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 28,
+                    "filename": "actions\\PHPMailer\\Exception.php"
+                },
+                {
+                    "blank": 14,
+                    "code": 45,
+                    "comment": 79,
+                    "filename": "actions\\PHPMailer\\OAuth.php"
+                },
+                {
+                    "blank": 367,
+                    "code": 2641,
+                    "comment": 1792,
+                    "filename": "actions\\PHPMailer\\PHPMailer.php"
+                },
+                {
+                    "blank": 46,
+                    "code": 164,
+                    "comment": 215,
+                    "filename": "actions\\PHPMailer\\POP3.php"
+                },
+                {
+                    "blank": 124,
+                    "code": 670,
+                    "comment": 581,
+                    "filename": "actions\\PHPMailer\\SMTP.php"
+                },
+                {
+                    "blank": 13,
+                    "code": 37,
+                    "comment": 2,
+                    "filename": "actions\\query.php"
+                },
+                {
+                    "blank": 7,
+                    "code": 32,
+                    "comment": 4,
+                    "filename": "actions\\upload.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "actions\\view.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "allocate.php"
+                },
+                {
+                    "blank": 19,
+                    "code": 81,
+                    "comment": 1,
+                    "filename": "card.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 6,
+                    "filename": "css\\bootstrap.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 2250,
+                    "comment": 7,
+                    "filename": "css\\bootstrap.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "css\\bootstrap.min.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "css\\bootstrap.min.js.map"
+                },
+                {
+                    "blank": 15,
+                    "code": 137,
+                    "comment": 0,
+                    "filename": "css\\card_css.css"
+                },
+                {
+                    "blank": 24,
+                    "code": 104,
+                    "comment": 8,
+                    "filename": "css\\display_lab.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 72,
+                    "comment": 1,
+                    "filename": "css\\login.css"
+                },
+                {
+                    "blank": 33,
+                    "code": 186,
+                    "comment": 5,
+                    "filename": "css\\style.css"
+                },
+                {
+                    "blank": 75,
+                    "code": 274,
+                    "comment": 135,
+                    "filename": "DATABASE FILE\\stock.sql"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "db_connect.php"
+                },
+                {
+                    "blank": 15,
+                    "code": 169,
+                    "comment": 0,
+                    "filename": "display_details.php"
+                },
+                {
+                    "blank": 30,
+                    "code": 144,
+                    "comment": 5,
+                    "filename": "display_lab_student.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "home.php"
+                },
+                {
+                    "filename": "images\\admin_icon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "images\\download.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "images\\img_avatar.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "images\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "images\\logo3.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "include\\footer.php"
+                },
+                {
+                    "blank": 4,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "include\\header.php"
+                },
+                {
+                    "blank": 7,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "include\\header_faculty.php"
+                },
+                {
+                    "blank": 9,
+                    "code": 67,
+                    "comment": 0,
+                    "filename": "include\\header_home.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "include\\header_student.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "include\\search.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "include\\sort.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 58,
+                    "comment": 3,
+                    "filename": "index.php"
+                },
+                {
+                    "blank": 18,
+                    "code": 191,
+                    "comment": 1,
+                    "filename": "items.php"
+                },
+                {
+                    "blank": 18,
+                    "code": 183,
+                    "comment": 0,
+                    "filename": "lab.php"
+                },
+                {
+                    "blank": 11,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "lab_faculty.php"
+                },
+                {
+                    "blank": 45,
+                    "code": 216,
+                    "comment": 0,
+                    "filename": "lab_pc_details.php"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "login.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "logout.php"
+                },
+                {
+                    "blank": 33,
+                    "code": 99,
+                    "comment": 6,
+                    "filename": "manage_faculty_details.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 2,
+                    "filename": "message.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 15,
+                    "code": 194,
+                    "comment": 0,
+                    "filename": "supplier.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 31,
+                    "comment": 68,
+                    "filename": "test.html"
+                },
+                {
+                    "blank": 23,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "timetable.php"
+                }
+            ]
+        }
+    ]
+}
