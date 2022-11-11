@@ -20,6 +20,7 @@ $srole = $_SESSION['user'];
     <script src="css/bootstrap.js"></script>
     <script src="include/search.js"></script>
     <script defer src="include/sort.js"></script>
+    <script src="validation.css"></script>
 
     <!-- navigation bar -->
     <div style="margin: 90px;">

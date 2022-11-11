@@ -30,7 +30,7 @@ require_once 'include/header.php'
                     </div>
                     <div class="mb-3">
                         <label class="form-label">BILL:</label>
-                        <input type="text" class="form-control" id="bill_no" name="bill_no" placeholder="Enter Bill No." required>
+                        <input type="number" min="0" class="form-control" id="bill_no" name="bill_no" placeholder="Enter Bill No." required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">SUPPLIER:</label>
