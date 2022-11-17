@@ -1,0 +1,12 @@
+# Requirement Document
+
+1. Download xampp
+Steps to download sampp
+    Go to the below link and download the xampp
+        LINK:- https://www.apachefriends.org/download_success.html
+
+2. Install xampp
+3. Download text editor or any suitable IDE.
+4. Install the IDE.
+5. Download the zip file of the project from the below link.
+    GITHUB LINK:- https://github.com/Kunal8879/Stock-Management-System
