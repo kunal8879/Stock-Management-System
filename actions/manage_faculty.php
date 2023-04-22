@@ -15,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<div class='form'>
               <h3>Data Entered successfully.</h3><br/>
               </div>";
-        echo "<meta http-equiv='refresh' content='0; URL=http://kunal.ninja/stock-Management-System/display_details.php'>";
+        echo "<meta http-equiv='refresh' content='0; URL=http://www.kunal.ninja/stock-Management-System/display_details.php'>";
     } else {
         echo "<div class='form'>
               <h3>ERROR</h3><br/>
               </div>";
-        // echo "<meta http-equiv='refresh' content='0; URL=http://kunal.ninja/Stock-Management-System-1/manage_faculty_details.php'>";
+        // echo "<meta http-equiv='refresh' content='0; URL=http://www.kunal.ninja/Stock-Management-System-1/manage_faculty_details.php'>";
     }
 }

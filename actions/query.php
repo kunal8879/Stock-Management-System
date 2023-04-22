@@ -41,7 +41,7 @@ $pc_name = $_GET['pc_name'];
 
         if ($mail->send()) {
             
-            header("Location: http://kunal.ninja/stock-Management-System/actions/display_lab.php?lab_no=$lab_no");
+            header("Location: http://www.kunal.ninja/stock-Management-System/actions/display_lab.php?lab_no=$lab_no");
         } else {
             $status = "failed";
             $response = "Something is wrong: <br><br>" . $mail->ErrorInfo;

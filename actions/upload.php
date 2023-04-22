@@ -26,7 +26,7 @@ if(isset($_POST["submit"])){
             if($sql_run){ 
                 $status = 'success'; 
                 $statusMsg = "File uploaded successfully.";
-                echo "<meta http-equiv='refresh' content='0; URL=http://kunal.ninja/stock-Management-System/actions/display_lab.php?lab_no=$roomno'>";
+                echo "<meta http-equiv='refresh' content='0; URL=http://www.kunal.ninja/stock-Management-System/actions/display_lab.php?lab_no=$roomno'>";
             }else{ 
                 $statusMsg = "File upload failed, please try again."; 
             }  
