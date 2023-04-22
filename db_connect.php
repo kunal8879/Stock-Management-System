@@ -1,11 +1,11 @@
 <?php
 
-$localhost = "127.0.0.1";
+$host = "mysql.cwfdvw0pptzn.us-east-1.rds.amazonaws.com";
 $username = "root";
 $password = "";
 $dbname = "stock";
 
-$conn = new mysqli($localhost, $username, $password, $dbname);
+$conn = new mysqli($host, $username, $password, $dbname);
 
 if (!$conn) {
     die('Connection Failed' . mysqli_connect_error());
